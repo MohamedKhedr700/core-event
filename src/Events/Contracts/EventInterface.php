@@ -5,19 +5,19 @@ namespace Raid\Core\Events\Contracts;
 interface EventInterface
 {
     /**
-     * Set repository name.
+     * Set eventable class name.
      */
-    public function setRepository(string $repository): EventInterface;
+    public function setEventable(string $repository): EventInterface;
 
     /**
-     * Get repository name.
+     * Get eventable class name.
      */
-    public function repository(): string;
+    public function eventable(): string;
 
     /**
-     * Set repository name.
+     * Determine if the eventable class name is set.
      */
-    public function withRepository(): bool;
+    public function withEventable(): bool;
 
     /**
      * Trigger the events.

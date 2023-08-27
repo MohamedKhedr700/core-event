@@ -18,10 +18,11 @@ if (! function_exists('eventable')) {
     /**
      * Get eventable manager.
      */
-    function eventable(string $eventable): EventableInterface
+    function eventable(string $eventable, string $action = ''): EventableInterface
     {
         return app(EventableInterface::class, [
             'eventable' => $eventable,
+            'action' => $action,
         ]);
     }
 }

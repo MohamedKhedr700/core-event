@@ -7,16 +7,16 @@ use Raid\Core\Events\Contracts\EventInterface;
 trait WithEventRepository
 {
     /**
-     * Repository name.
+     * Eventable class name.
      */
-    protected string $repository;
+    protected string $eventable;
 
     /**
      * {@inheritdoc}
      */
-    public function setRepository(string $repository): EventInterface
+    public function setEventable(string $eventable): EventInterface
     {
-        $this->repository = $repository;
+        $this->eventable = $eventable;
 
         return $this;
     }
@@ -24,16 +24,16 @@ trait WithEventRepository
     /**
      * {@inheritdoc}
      */
-    public function repository(): string
+    public function eventable(): string
     {
-        return $this->repository;
+        return $this->eventable;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function withRepository(): bool
+    public function withEventable(): bool
     {
-        return isset($this->repository);
+        return isset($this->eventable);
     }
 }
