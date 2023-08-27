@@ -1,0 +1,45 @@
+{
+    "name": "raid/core",
+    "description": "Raid Core",
+    "type": "library",
+    "license": "MIT",
+    "version": "1.0.0",
+    "minimum-stability": "dev",
+    "keywords": [
+        "laravel",
+        "raid",
+        "core",
+        "event",
+        "listener"
+    ],
+    "require": {
+        "php": "^8.2",
+        "raid/core-enum": "*"
+    },
+    "require-dev": {
+        "laravel/pint": "^1.10"
+    },
+    "autoload": {
+        "psr-4": {
+            "Raid\\Core\\": "src"
+        }
+    },
+    "scripts": {
+        "pint": [
+            "./vendor/bin/pint --config pint.json "
+        ]
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Raid\\Core\\Providers\\EventServiceProvider"
+            ]
+        }
+    },
+    "authors": [
+        {
+            "name": "mohamedkhedr700",
+            "email": "M.khedr@rowaad.net"
+        }
+    ]
+}
