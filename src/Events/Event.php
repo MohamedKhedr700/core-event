@@ -71,7 +71,7 @@ class Event implements EventInterface
      */
     private function getEventableClass(string $eventable): string
     {
-        $eventables = array_keys(config('events.events'));
+        $eventables = array_keys(config('event.events'));
 
         foreach ($eventables as $eventableClass) {
             if ($eventableClass::eventableName() !== $eventable) {
