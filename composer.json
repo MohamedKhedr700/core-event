@@ -1,6 +1,6 @@
 {
-    "name": "raid/core",
-    "description": "Raid Core",
+    "name": "raid/core-event",
+    "description": "Raid Core Event",
     "type": "library",
     "license": "MIT",
     "version": "1.0.0",
