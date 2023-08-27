@@ -1,4 +1,5 @@
 <?php
+
 namespace Raid\Core\Providers;
 
 use Illuminate\Support\ServiceProvider;

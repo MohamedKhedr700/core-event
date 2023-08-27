@@ -11,7 +11,7 @@ trait WithEventableResolver
      * Eventable class.
      */
     protected string $eventable;
-    
+
     /**
      * Action name.
      */
@@ -38,7 +38,7 @@ trait WithEventableResolver
     public function setEventable(string $eventable): EventableInterface
     {
         $this->eventable = $eventable;
-        
+
         return $this;
     }
 
@@ -49,7 +49,7 @@ trait WithEventableResolver
     {
         return $this->eventable;
     }
-    
+
     /**
      * {@inheritdoc}
      */
@@ -143,6 +143,16 @@ trait WithEventableResolver
     /**
      * {@inheritdoc}
      */
+    public function loadListeners(array $events): void
+    {
+        foreach ($events as $event) {
+            $event->loadListeners($this->lazyLoad());
+        }
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function getActionEvents(string $action): array
     {
         $repositoryEvents = $this->getEventableEvents();
@@ -162,16 +172,6 @@ trait WithEventableResolver
         }
 
         return $events;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function loadListeners(array $events): void
-    {
-        foreach ($events as $event) {
-            $event->loadListeners($this->lazyLoad());
-        }
     }
 
     /**

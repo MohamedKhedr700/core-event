@@ -2,8 +2,6 @@
 
 namespace Raid\Core\Traits\Provider;
 
-use Illuminate\Foundation\AliasLoader;
-use Illuminate\Support\Facades\Validator;
 use Raid\Core\Events\Contracts\EventableInterface;
 use Raid\Core\Facades\Events\Event;
 
