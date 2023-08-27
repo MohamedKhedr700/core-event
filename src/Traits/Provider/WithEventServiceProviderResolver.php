@@ -29,7 +29,7 @@ trait WithEventServiceProviderResolver
      */
     private function registerHelpers(): void
     {
-        $helpers = glob(__DIR__.'/../../Http/Helpers/*.php');
+        $helpers = glob(__DIR__.'/../../Helpers/*.php');
 
         foreach ($helpers as $helper) {
             require_once $helper;
