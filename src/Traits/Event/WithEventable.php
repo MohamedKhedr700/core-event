@@ -14,7 +14,7 @@ trait WithEventable
     /**
      * {@inheritdoc}
      */
-    public function setEventable(string $eventable): EventManagerInterface
+    public function setEventable(string $eventable): static
     {
         $this->eventable = $eventable;
 
