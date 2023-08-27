@@ -28,6 +28,11 @@ trait WithEventableResolver
     protected bool $lazyLoad = true;
 
     /**
+     * Indicates if the events are loaded.
+     */
+    protected bool $loaded = false;
+
+    /**
      * {@inheritdoc}
      */
     public function setEventable(string $eventable): EventableInterface
@@ -112,13 +117,27 @@ trait WithEventableResolver
     /**
      * {@inheritdoc}
      */
+    public function loaded(): bool
+    {
+        return $this->loaded;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function LoadEvents(string $action): void
     {
+        if ($this->loaded()) {
+            return;
+        }
+
         $events = $this->getActionEvents($action);
 
         $this->setEvents($events);
 
         $this->loadListeners($events);
+
+        $this->loaded = true;
     }
 
     /**
