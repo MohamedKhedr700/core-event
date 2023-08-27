@@ -8,9 +8,19 @@ if (! function_exists('events')) {
     /**
      * Get event manager instance.
      */
-    function events(): EventManagerInterface
+    function events(string $eventable = '', string $action = '', array $data = []): EventManagerInterface
     {
-        return Event::getFacadeRoot();
+        $eventManager = Event::getFacadeRoot();
+
+        if ($eventable) {
+            $eventManager->setEventable($eventable);
+        }
+
+        if ($action && $data) {
+            $eventManager->trigger($action, $data);
+        }
+
+        return $eventManager;
     }
 }
 

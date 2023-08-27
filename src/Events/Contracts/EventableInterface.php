@@ -7,7 +7,7 @@ interface EventableInterface
     /**
      * Set eventable class.
      */
-    public function setEventable(string $eventable): EventableInterface;
+    public function setEventable(string $eventable): static;
 
     /**
      * Get eventable class.

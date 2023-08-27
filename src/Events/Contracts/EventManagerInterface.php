@@ -7,7 +7,7 @@ interface EventManagerInterface
     /**
      * Set eventable class name.
      */
-    public function setEventable(string $repository): EventManagerInterface;
+    public function setEventable(string $eventable): static;
 
     /**
      * Get eventable class name.
