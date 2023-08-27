@@ -35,7 +35,7 @@ class Event implements EventInterface
 
         $eventableClass = $this->getEventableClass($eventable);
 
-        eventable($eventableClass, $action)->trigger(...$data);
+        eventable($eventableClass)->trigger($action, ...$data);
     }
 
     /**

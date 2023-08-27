@@ -25,9 +25,9 @@ trait Eventable
     /**
      * Invoke event.
      */
-    public static function event(): EventableInterface
+    public static function event(string $action = ''): EventableInterface
     {
-        return eventable(static::eventable());
+        return eventable(static::eventable(), $action);
     }
 
     /**
