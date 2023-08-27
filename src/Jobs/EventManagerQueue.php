@@ -11,8 +11,8 @@ class EventManagerQueue extends Queue
      */
     public function __construct(
         private readonly EventInterface $eventManager,
-        private readonly string         $method,
-        private readonly array          $data = [],
+        private readonly string $method,
+        private readonly array $data = [],
     ) {
     }
 
