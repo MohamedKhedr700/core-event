@@ -19,19 +19,19 @@ class Eventable implements EventableInterface
         $this->setEventable($eventable);
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function prepare(string $action, bool $loadEvents, bool $lazyLoad): void
-    {
-        $this->setAction($action);
-
-        if (! $loadEvents) {
-            return;
-        }
-
-        $this->LoadEvents($action, $lazyLoad);
-    }
+//    /**
+//     * {@inheritdoc}
+//     */
+//    public function prepare(string $action, bool $loadEvents, bool $lazyLoad): void
+//    {
+//        $this->setAction($action);
+//
+//        if (! $loadEvents) {
+//            return;
+//        }
+//
+//        $this->LoadEvents($action, $lazyLoad);
+//    }
 
     /**
      * {@inheritdoc}

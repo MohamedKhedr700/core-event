@@ -24,10 +24,10 @@ interface EventableInterface
      */
     public function events(): array;
 
-    /**
-     * Prepare action events.
-     */
-    public function prepare(string $action): void;
+//    /**
+//     * Prepare action events.
+//     */
+//    public function prepare(string $action): void;
 
     /**
      * Initialize action event.
