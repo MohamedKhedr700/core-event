@@ -12,5 +12,5 @@ class Event extends Facade
     /**
      * {@inheritdoc}
      */
-    public const FACADE = 'event';
+    public const FACADE = 'Event';
 }
