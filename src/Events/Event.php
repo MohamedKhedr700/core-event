@@ -35,7 +35,7 @@ class Event implements EventInterface
 
         $eventableClass = $this->getEventableClass($eventable);
 
-        eventable($event, $action)->trigger(...$data);
+        eventable($eventableClass, $action)->trigger(...$data);
     }
 
     /**
@@ -64,9 +64,23 @@ class Event implements EventInterface
         return explode('.', $event);
     }
 
-    private function getEventableClass(string $eventable)
+    /**
+     * Get eventable class.
+     *
+     * @throws Exception
+     */
+    private function getEventableClass(string $eventable): string
     {
-        $events = array_keys(config('events.events'));
+        $eventables = array_keys(config('events.events'));
 
+        foreach ($eventables as $eventableClass) {
+            if ($eventableClass::eventableName() !== $eventable) {
+                continue;
+            }
+
+            return $eventableClass;
+        }
+
+        throw new Exception("Eventable {$eventable} not found.");
     }
 }
