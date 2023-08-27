@@ -2,7 +2,6 @@
 
 use Raid\Core\Events\Contracts\EventableInterface;
 use Raid\Core\Events\Contracts\EventManagerInterface;
-use Raid\Core\Facades\Events\Event;
 
 if (! function_exists('events')) {
     /**
@@ -10,7 +9,7 @@ if (! function_exists('events')) {
      */
     function events(): EventManagerInterface
     {
-        return Event::getFacadeRoot();
+        return \Raid\Core\Events\EventManager::getFacadeRoot();
     }
 }
 
