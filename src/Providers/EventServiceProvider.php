@@ -1,4 +1,5 @@
 <?php
+namespace Raid\Core\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Raid\Core\Traits\Provider\WithCoreServiceProviderResolver;
@@ -18,7 +19,6 @@ class EventServiceProvider extends ServiceProvider
     public function register(): void
     {
         $this->registerHelpers();
-
     }
 
     /**
