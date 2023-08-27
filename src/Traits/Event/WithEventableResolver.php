@@ -3,10 +3,15 @@
 namespace Raid\Core\Traits\Event;
 
 use Illuminate\Support\Facades\App;
-use Raid\Core\Events\Contracts\EventActionInterface;
+use Raid\Core\Events\Contracts\EventableInterface;
 
-trait WithEventActionResolver
+trait WithEventableResolver
 {
+    /**
+     * Eventable class.
+     */
+    protected string $eventable;
+    
     /**
      * Action name.
      */
@@ -20,7 +25,25 @@ trait WithEventActionResolver
     /**
      * {@inheritdoc}
      */
-    public function setAction(string $action): EventActionInterface
+    public function setEventable(string $eventable): EventableInterface
+    {
+        $this->eventable = $eventable;
+        
+        return $this;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function eventable(): string
+    {
+        return $this->eventable;
+    }
+    
+    /**
+     * {@inheritdoc}
+     */
+    public function setAction(string $action): EventableInterface
     {
         $this->action = $action;
 
@@ -38,7 +61,7 @@ trait WithEventActionResolver
     /**
      * {@inheritdoc}
      */
-    public function setEvents(array $events): EventActionInterface
+    public function setEvents(array $events): EventableInterface
     {
         $this->events = $events;
 
@@ -56,9 +79,9 @@ trait WithEventActionResolver
     /**
      * {@inheritdoc}
      */
-    public function LoadEvents(string $action, bool $lazyLoad): void
+    public function LoadEvents(string $action): void
     {
-        $events = $this->getActionEvents($action, $lazyLoad);
+        $events = $this->getActionEvents($action);
 
         $this->setEvents($events);
 
@@ -68,11 +91,11 @@ trait WithEventActionResolver
     /**
      * {@inheritdoc}
      */
-    public function getActionEvents(string $action, bool $lazyLoad): array
+    public function getActionEvents(string $action): array
     {
-        [$repository, $action] = $this->parseAction($action);
+//        [$repository, $action] = $this->parseAction($action);
 
-        $repositoryEvents = $this->getRepositoryEvents($repository);
+        $repositoryEvents = $this->getEventableEvents();
 
         $events = [];
 
@@ -114,8 +137,14 @@ trait WithEventActionResolver
     /**
      * {@inheritdoc}
      */
-    public function getRepositoryEvents(string $repository): array
+    public function getEventableEvents(): array
     {
-        return config($repository.'.events', []);
+        $events = $this->eventable()->getEvents();
+
+        if (! $events) {
+            $events = config('event.events.'.$this->eventable()) ?? [];
+        }
+
+        return $events;
     }
 }

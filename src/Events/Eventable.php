@@ -2,21 +2,21 @@
 
 namespace Raid\Core\Events;
 
-use Raid\Core\Events\Contracts\EventActionInterface;
-use Raid\Core\Traits\Event\WithEventActionResolver;
+use Raid\Core\Events\Contracts\EventableInterface;
+use Raid\Core\Traits\Event\WithEventableResolver;
 use Raid\Core\Traits\Event\WithLazyEvent;
 
-class EventAction implements EventActionInterface
+class Eventable implements EventableInterface
 {
-    use WithEventActionResolver,
+    use WithEventableResolver,
         WithLazyEvent;
 
     /**
      * Create a new event action instance.
      */
-    public function __construct(string $action, bool $loadEvents, bool $lazyLoad = true)
+    public function __construct(string $eventable)
     {
-        $this->prepare($action, $loadEvents, $lazyLoad);
+        $this->setEventable($eventable);
     }
 
     /**
@@ -36,8 +36,10 @@ class EventAction implements EventActionInterface
     /**
      * {@inheritdoc}
      */
-    public function init(...$data): void
+    public function init(string $action, ...$data): void
     {
+        $this->LoadEvents($action);
+
         foreach ($this->events() as $event) {
             $event->registerInit($data);
         }
@@ -46,8 +48,10 @@ class EventAction implements EventActionInterface
     /**
      * {@inheritdoc}
      */
-    public function trigger(...$data): void
+    public function trigger(string $action, ...$data): void
     {
+        $this->LoadEvents($action);
+
         foreach ($this->events() as $event) {
             $event->registerHandle($data);
         }

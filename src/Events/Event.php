@@ -31,7 +31,7 @@ class Event implements EventInterface
      */
     public function triggerEvent(string $event, ...$data): void
     {
-        event_action($event, true, false)->trigger(...$data);
+        eventable($event, true, false)->trigger(...$data);
     }
 
     /**

@@ -4,7 +4,7 @@ namespace Raid\Core\Traits\Provider;
 
 use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\Facades\Validator;
-use Raid\Core\Events\Contracts\EventActionInterface;
+use Raid\Core\Events\Contracts\EventableInterface;
 use Raid\Core\Facades\Events\Event;
 
 trait WithEventServiceProviderResolver
@@ -41,24 +41,23 @@ trait WithEventServiceProviderResolver
      */
     private function registerEvents(): void
     {
-        $this->registerEventsFacade();
-
-        $this->registerEventAction();
+        $this->registerEventsFacadeHandler();
+        $this->registerEventableHandler();
     }
 
     /**
-     * Register event facade.
+     * Register event facade handler.
      */
-    private function registerEventsFacade(): void
+    private function registerEventsFacadeHandler(): void
     {
         $this->app->singleton(Event::facade(), config('event.event_handler'));
     }
 
     /**
-     * Register event action.
+     * Register eventable handler.
      */
-    private function registerEventAction(): void
+    private function registerEventableHandler(): void
     {
-        $this->app->bind(EventActionInterface::class, config('event.event_action_handler'));
+        $this->app->bind(EventableInterface::class, config('event.eventable_handler'));
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-use Raid\Core\Events\Contracts\EventActionInterface;
+use Raid\Core\Events\Contracts\EventableInterface;
 use Raid\Core\Events\Contracts\EventInterface;
 use Raid\Core\Events\Event;
 
@@ -14,16 +14,14 @@ if (! function_exists('events')) {
     }
 }
 
-if (! function_exists('event_action')) {
+if (! function_exists('eventable')) {
     /**
-     * Get event action manager.
+     * Get eventable manager.
      */
-    function event_action(string $action, bool $loadEvents = true, bool $lazyLoad = true): EventActionInterface
+    function eventable(string $eventable): EventableInterface
     {
-        return app(EventActionInterface::class, [
-            'action' => $action,
-            'loadEvents' => $loadEvents,
-            'lazyLoad' => $lazyLoad,
+        return app(EventableInterface::class, [
+            'eventable' => $eventable,
         ]);
     }
 }
