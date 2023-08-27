@@ -179,6 +179,6 @@ trait WithEventableResolver
      */
     public function getEventableEvents(): array
     {
-        return $this->eventable()->getEvents();
+        return $this->eventable()::getEvents();
     }
 }
