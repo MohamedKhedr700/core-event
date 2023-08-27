@@ -1,16 +1,16 @@
 <?php
 
 use Raid\Core\Events\Contracts\EventableInterface;
-use Raid\Core\Events\Contracts\EventInterface;
-use Raid\Core\Events\Event;
+use Raid\Core\Events\Contracts\EventManagerInterface;
+use Raid\Core\Events\EventManager;
 
 if (! function_exists('events')) {
     /**
      * Get repository events manager.
      */
-    function events(): EventInterface
+    function events(): EventManagerInterface
     {
-        return Event::getFacadeRoot();
+        return EventManager::getFacadeRoot();
     }
 }
 

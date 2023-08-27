@@ -2,7 +2,7 @@
 
 namespace Raid\Core\Traits\Event;
 
-use Raid\Core\Events\Contracts\EventInterface;
+use Raid\Core\Events\Contracts\EventManagerInterface;
 
 trait WithEventable
 {
@@ -14,7 +14,7 @@ trait WithEventable
     /**
      * {@inheritdoc}
      */
-    public function setEventable(string $eventable): EventInterface
+    public function setEventable(string $eventable): EventManagerInterface
     {
         $this->eventable = $eventable;
 

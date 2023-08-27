@@ -5,7 +5,7 @@ namespace Raid\Core\Traits\Event;
 use Illuminate\Support\Facades\App;
 use Raid\Core\Events\Contracts\EventListenerInterface;
 
-trait WithEventMangerResolver
+trait WithEventResolver
 {
     /**
      * Event loaded listeners.

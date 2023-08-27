@@ -2,7 +2,7 @@
 
 namespace Raid\Core\Jobs;
 
-use Raid\Core\Events\Contracts\EventManagerInterface;
+use Raid\Core\Events\Contracts\EventInterface;
 
 class EventManagerQueue extends Queue
 {
@@ -10,9 +10,9 @@ class EventManagerQueue extends Queue
      * Create a new job instance.
      */
     public function __construct(
-        private readonly EventManagerInterface $eventManager,
-        private readonly string $method,
-        private readonly array $data = [],
+        private readonly EventInterface $eventManager,
+        private readonly string         $method,
+        private readonly array          $data = [],
     ) {
     }
 

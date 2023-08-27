@@ -2,85 +2,58 @@
 
 namespace Raid\Core\Events;
 
-use Exception;
 use Raid\Core\Events\Contracts\EventInterface;
-use Raid\Core\Traits\Event\WithEventable;
+use Raid\Core\Traits\Event\WithEventResolver;
+use Raid\Core\Traits\Event\WithLazyEvent;
+use Raid\Core\Traits\Event\WithQueueEvent;
 
-class Event implements EventInterface
+abstract class Event implements EventInterface
 {
-    use WithEventable;
+    use WithEventResolver,
+        WithLazyEvent,
+        WithQueueEvent;
+
+    /**
+     * Event action.
+     */
+    public const ACTION = '';
+
+    /**
+     * Event listeners.
+     */
+    public const LISTENERS = [];
 
     /**
      * {@inheritdoc}
-     *
-     * @throws Exception
      */
-    public function trigger(string $events, ...$data): void
+    public static function action(): string
     {
-        $events = $this->parseEvents($events);
-
-        foreach ($events as $event) {
-            $this->triggerEvent($event, ...$data);
-        }
+        return static::ACTION;
     }
 
     /**
      * {@inheritdoc}
-     *
-     * @throws Exception
      */
-    public function triggerEvent(string $event, ...$data): void
+    public static function listeners(): array
     {
-        [$eventable, $action] = $this->parseEvent($event);
-
-        $eventableClass = $this->getEventableClass($eventable);
-
-        eventable($eventableClass)->trigger($action, ...$data);
+        return static::LISTENERS;
     }
 
     /**
-     * Prepare events.
+     * {@inheritdoc}
      */
-    private function parseEvents(string $events): array
+    public function registerInit(array $data): void
     {
-        $events = explode(' ', $events);
-
-        if (! $this->withEventable()) {
-            return $events;
-        }
-
-        foreach ($events as &$event) {
-            $event = $this->eventable().'.'.$event;
-        }
-
-        return $events;
+        $this->initEvent($data);
+        $this->initListeners($data);
     }
 
     /**
-     * Parse event.
+     * {@inheritdoc}
      */
-    private function parseEvent(string $event): array
+    public function registerHandle(array $data): void
     {
-        return explode('.', $event);
-    }
-
-    /**
-     * Get eventable class.
-     *
-     * @throws Exception
-     */
-    private function getEventableClass(string $eventable): string
-    {
-        $eventables = array_keys(config('event.events') ?? []);
-
-        foreach ($eventables as $eventableClass) {
-            if ($eventableClass::eventableName() !== $eventable) {
-                continue;
-            }
-
-            return $eventableClass;
-        }
-
-        throw new Exception("Eventable {$eventable} not found.");
+        $this->handleEvent($data);
+        $this->handleListeners($data);
     }
 }
