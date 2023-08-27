@@ -4,7 +4,7 @@ namespace Raid\Core\Traits\Event;
 
 use Raid\Core\Events\Contracts\EventInterface;
 
-trait WithEventRepository
+trait WithEventable
 {
     /**
      * Eventable class name.

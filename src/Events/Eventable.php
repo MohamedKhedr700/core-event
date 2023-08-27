@@ -3,12 +3,14 @@
 namespace Raid\Core\Events;
 
 use Raid\Core\Events\Contracts\EventableInterface;
+use Raid\Core\Traits\Event\WithEventable;
 use Raid\Core\Traits\Event\WithEventableResolver;
 use Raid\Core\Traits\Event\WithLazyEvent;
 
 class Eventable implements EventableInterface
 {
-    use WithEventableResolver,
+    use WithEventable,
+        WithEventableResolver,
         WithLazyEvent;
 
     /**

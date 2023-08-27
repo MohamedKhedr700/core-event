@@ -4,11 +4,11 @@ namespace Raid\Core\Events;
 
 use Exception;
 use Raid\Core\Events\Contracts\EventInterface;
-use Raid\Core\Traits\Event\WithEventRepository;
+use Raid\Core\Traits\Event\WithEventable;
 
 class Event implements EventInterface
 {
-    use WithEventRepository;
+    use WithEventable;
 
     /**
      * {@inheritdoc}

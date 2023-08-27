@@ -8,11 +8,6 @@ use Raid\Core\Events\Contracts\EventableInterface;
 trait WithEventableResolver
 {
     /**
-     * Eventable class.
-     */
-    protected string $eventable;
-
-    /**
      * Action name.
      */
     protected string $action;
@@ -31,24 +26,6 @@ trait WithEventableResolver
      * Indicates if the events are loaded.
      */
     protected bool $loaded = false;
-
-    /**
-     * {@inheritdoc}
-     */
-    public function setEventable(string $eventable): EventableInterface
-    {
-        $this->eventable = $eventable;
-
-        return $this;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function eventable(): string
-    {
-        return $this->eventable;
-    }
 
     /**
      * {@inheritdoc}
