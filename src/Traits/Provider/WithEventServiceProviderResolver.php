@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Validator;
 use Raid\Core\Events\Contracts\EventActionInterface;
 use Raid\Core\Facades\Events\Event;
 
-trait WithCoreServiceProviderResolver
+trait WithEventServiceProviderResolver
 {
     /**
      * Register config.

@@ -2,11 +2,11 @@
 namespace Raid\Core\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Raid\Core\Traits\Provider\WithCoreServiceProviderResolver;
+use Raid\Core\Traits\Provider\WithEventServiceProviderResolver;
 
 class EventServiceProvider extends ServiceProvider
 {
-    use WithCoreServiceProviderResolver;
+    use WithEventServiceProviderResolver;
 
     /**
      * The commands to be registered.
