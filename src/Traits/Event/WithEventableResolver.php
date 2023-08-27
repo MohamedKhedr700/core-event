@@ -23,6 +23,11 @@ trait WithEventableResolver
     protected array $events = [];
 
     /**
+     * Indicates if the events should be run lazily.
+     */
+    protected bool $lazyLoad = true;
+
+    /**
      * {@inheritdoc}
      */
     public function setEventable(string $eventable): EventableInterface
@@ -79,13 +84,41 @@ trait WithEventableResolver
     /**
      * {@inheritdoc}
      */
+    public function withLazyLoad(): EventableInterface
+    {
+        $this->lazyLoad = true;
+
+        return $this;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function withoutLazyLoad(): EventableInterface
+    {
+        $this->lazyLoad = false;
+
+        return $this;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function lazyLoad(): bool
+    {
+        return $this->lazyLoad;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function LoadEvents(string $action): void
     {
         $events = $this->getActionEvents($action);
 
         $this->setEvents($events);
 
-        $this->loadListeners($events, $lazyLoad);
+        $this->loadListeners($events);
     }
 
     /**
@@ -93,8 +126,6 @@ trait WithEventableResolver
      */
     public function getActionEvents(string $action): array
     {
-//        [$repository, $action] = $this->parseAction($action);
-
         $repositoryEvents = $this->getEventableEvents();
 
         $events = [];
@@ -104,7 +135,7 @@ trait WithEventableResolver
                 continue;
             }
 
-            if ($this->lazilyEvent($event)) {
+            if ($this->lazyLoad() && $this->lazilyEvent($event)) {
                 continue;
             }
 
@@ -117,21 +148,11 @@ trait WithEventableResolver
     /**
      * {@inheritdoc}
      */
-    public function loadListeners(array $events, bool $lazyLoad): void
+    public function loadListeners(array $events): void
     {
         foreach ($events as $event) {
-            $event->loadListeners($lazyLoad);
+            $event->loadListeners($this->lazyLoad());
         }
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function parseAction(string $action): array
-    {
-        $actionArray = explode('.', $action);
-
-        return [$actionArray[0] ?? null, $actionArray[1] ?? null];
     }
 
     /**
@@ -139,12 +160,6 @@ trait WithEventableResolver
      */
     public function getEventableEvents(): array
     {
-        $events = $this->eventable()->getEvents();
-
-        if (! $events) {
-            $events = config('event.events.'.$this->eventable()) ?? [];
-        }
-
-        return $events;
+        return $this->eventable()->getEvents();
     }
 }

@@ -27,7 +27,7 @@ interface EventableInterface
     /**
      * Prepare action events.
      */
-    public function prepare(string $action, bool $loadEvents, bool $lazyLoad): void;
+    public function prepare(string $action): void;
 
     /**
      * Initialize action event.
@@ -42,20 +42,15 @@ interface EventableInterface
     /**
      * Load action event listeners.
      */
-    public function loadListeners(array $events, bool $lazyLoad): void;
+    public function loadListeners(array $events): void;
 
     /**
      * Load action events.
      */
-    public function LoadEvents(string $action, bool $lazyLoad): void;
+    public function LoadEvents(string $action): void;
 
     /**
      * Get action events.
      */
-    public function getActionEvents(string $action, bool $lazyLoad): array;
-
-    /**
-     * Parse action.
-     */
-    public function parseAction(string $action): array;
+    public function getActionEvents(string $action): array;
 }
