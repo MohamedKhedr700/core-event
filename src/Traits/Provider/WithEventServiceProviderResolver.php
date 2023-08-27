@@ -25,6 +25,18 @@ trait WithCoreServiceProviderResolver
     }
 
     /**
+     * Register helpers.
+     */
+    private function registerHelpers(): void
+    {
+        $helpers = glob(__DIR__.'/../../Http/Helpers/*.php');
+
+        foreach ($helpers as $helper) {
+            require_once $helper;
+        }
+    }
+
+    /**
      * Register events.
      */
     private function registerEvents(): void
