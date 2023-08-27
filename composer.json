@@ -37,7 +37,7 @@
         }
     },
     "aliases": {
-        "Event": "Raid\\Core\\Facades\\EventManager"
+        "Event": "Raid\\Core\\Facades\\Event"
     },
     "authors": [
         {
