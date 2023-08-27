@@ -19,7 +19,7 @@ trait Eventable
      */
     public static function eventableName(): string
     {
-        return class_basename(static::eventable());
+        return strtolower(class_basename(static::eventable()));
     }
 
     /**
