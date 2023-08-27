@@ -59,7 +59,7 @@ class Event implements EventInterface
     /**
      * Parse event.
      */
-    private function parseEvent(string $event): string
+    private function parseEvent(string $event): array
     {
         return explode('.', $event);
     }
