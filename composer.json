@@ -36,6 +36,9 @@
             ]
         }
     },
+    "aliases": {
+        "Event": "Raid\\Core\\Facades\\Event"
+    },
     "authors": [
         {
             "name": "mohamed_khedr",
