@@ -62,12 +62,12 @@ interface EventableInterface
     /**
      * Initialize action event.
      */
-    public function init(string $action, ...$data): void;
+    public function init(string $action, ...$data): EventableInterface;
 
     /**
      * Trigger action event.
      */
-    public function trigger(string $action, ...$data): void;
+    public function trigger(string $action, ...$data): EventableInterface;
 
     /**
      * Load action events.

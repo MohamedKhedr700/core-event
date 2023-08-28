@@ -24,24 +24,28 @@ class Eventable implements EventableInterface
     /**
      * {@inheritdoc}
      */
-    public function init(string $action, ...$data): void
+    public function init(string $action, ...$data): EventableInterface
     {
         $this->LoadEvents($action);
 
         foreach ($this->events() as $event) {
             $event->registerInit($data);
         }
+
+        return $this;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function trigger(string $action, ...$data): void
+    public function trigger(string $action, ...$data): EventableInterface
     {
         $this->LoadEvents($action);
 
         foreach ($this->events() as $event) {
             $event->registerHandle($data);
         }
+
+        return $this;
     }
 }
