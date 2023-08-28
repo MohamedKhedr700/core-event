@@ -20,7 +20,7 @@ class EventManager implements EventManagerInterface
         $parsedEvent = $this->parseEvents($event);
 
         $eventableClass = $this->getEventableClass($this->eventable());
-        dd($parsedEvent);
+
         eventable($eventableClass, $parsedEvent, $data);
     }
 
