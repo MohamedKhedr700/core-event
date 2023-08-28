@@ -32,7 +32,11 @@ if (! function_exists('eventable')) {
     {
         $eventableManager = app(EventableInterface::class, ['eventable' => $eventable]);
 
-        if ($action && $data) {
+        if ($action) {
+            $eventableManager->setAction($action);
+        }
+
+        if ($data) {
             $eventableManager->trigger($action, $data);
         }
 
