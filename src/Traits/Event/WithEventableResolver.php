@@ -137,7 +137,7 @@ trait WithEventableResolver
      */
     public function sameAction(string $action): void
     {
-        if ($this->action() === $action) {
+        if (! isset($this->action) || $this->action() === $action) {
             return;
         }
 
