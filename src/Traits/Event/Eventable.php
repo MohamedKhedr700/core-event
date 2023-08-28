@@ -25,7 +25,7 @@ trait Eventable
     /**
      * Invoke event.
      */
-    public static function event(string $action = '', array $data = []): EventableInterface
+    public static function events(string $action = '', array $data = []): EventableInterface
     {
         return eventable(static::eventable(), $action, $data);
     }
