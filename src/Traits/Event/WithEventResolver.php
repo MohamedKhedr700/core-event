@@ -31,7 +31,7 @@ trait WithEventResolver
     /**
      * {@inheritdoc}
      */
-    public function loadListeners(bool $lazyLoad): array
+    public function loadListeners(bool $lazyLoad = true): array
     {
         if ($this->loaded()) {
             return $this->loadedListeners();
