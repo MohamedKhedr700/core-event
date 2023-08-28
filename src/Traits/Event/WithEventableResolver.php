@@ -110,7 +110,7 @@ trait WithEventableResolver
         $events = [];
 
         foreach ($repositoryEvents as $event) {
-            if (! in_array($event::getAction(), $action)) {
+            if (! in_array($event::action(), $action)) {
                 continue;
             }
 
