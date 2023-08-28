@@ -2,7 +2,7 @@
 
 namespace Raid\Core\Traits\Event;
 
-trait WithLoadEvent
+trait WithLoadedEvent
 {
     /**
      * Indicates if the events and listeners are loaded.

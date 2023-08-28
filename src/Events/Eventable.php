@@ -3,17 +3,19 @@
 namespace Raid\Core\Events;
 
 use Raid\Core\Events\Contracts\EventableInterface;
+use Raid\Core\Traits\Event\WithActionEvent;
 use Raid\Core\Traits\Event\WithEventable;
 use Raid\Core\Traits\Event\WithEventableResolver;
 use Raid\Core\Traits\Event\WithLazyEvent;
-use Raid\Core\Traits\Event\WithLoadEvent;
+use Raid\Core\Traits\Event\WithLoadedEvent;
 
 class Eventable implements EventableInterface
 {
-    use WithEventable,
+    use WithActionEvent,
+        WithEventable,
         WithEventableResolver,
         WithLazyEvent,
-        WithLoadEvent;
+        WithLoadedEvent;
 
     /**
      * Create a new event action instance.

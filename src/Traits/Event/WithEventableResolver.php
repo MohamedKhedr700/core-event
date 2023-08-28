@@ -8,34 +8,9 @@ use Raid\Core\Events\Contracts\EventableInterface;
 trait WithEventableResolver
 {
     /**
-     * Action name.
-     */
-    protected string $action;
-
-    /**
      * Action events.
      */
     protected array $events = [];
-
-    /**
-     * {@inheritdoc}
-     */
-    public function setAction(string $action): EventableInterface
-    {
-        $this->reloadAction($action);
-
-        $this->action = $action;
-
-        return $this;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function action(): string
-    {
-        return $this->action;
-    }
 
     /**
      * {@inheritdoc}
@@ -117,25 +92,5 @@ trait WithEventableResolver
     public function getEventableEvents(): array
     {
         return $this->eventable()::getEvents();
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function reloadAction(string $action): void
-    {
-        if (! isset($this->action) || $this->action() === $action) {
-            return;
-        }
-
-        $this->loaded = false;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function parseAction(string $action): array
-    {
-        return array_values(array_filter(explode(' ', $action)));
     }
 }

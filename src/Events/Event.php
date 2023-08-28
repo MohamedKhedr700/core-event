@@ -5,14 +5,14 @@ namespace Raid\Core\Events;
 use Raid\Core\Events\Contracts\EventInterface;
 use Raid\Core\Traits\Event\WithEventResolver;
 use Raid\Core\Traits\Event\WithLazyEvent;
-use Raid\Core\Traits\Event\WithLoadEvent;
+use Raid\Core\Traits\Event\WithLoadedEvent;
 use Raid\Core\Traits\Event\WithQueueEvent;
 
 abstract class Event implements EventInterface
 {
     use WithEventResolver,
         WithLazyEvent,
-        WithLoadEvent,
+        WithLoadedEvent,
         WithQueueEvent;
 
     /**

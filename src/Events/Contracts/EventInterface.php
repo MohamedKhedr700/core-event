@@ -2,7 +2,9 @@
 
 namespace Raid\Core\Events\Contracts;
 
-interface EventInterface
+use Raid\Core\Events\Contracts\Concerns\LoadedEventInterface;
+
+interface EventInterface extends LoadedEventInterface
 {
     /**
      * Get event action.
@@ -23,16 +25,6 @@ interface EventInterface
      * Get loaded listeners.
      */
     public function loadedListeners(): array;
-
-    /**
-     * Set listeners loaded state.
-     */
-    public function setLoaded(bool $loaded): void;
-
-    /**
-     * Determine if event listeners are loaded.
-     */
-    public function loaded(): bool;
 
     /**
      * Load event listeners.

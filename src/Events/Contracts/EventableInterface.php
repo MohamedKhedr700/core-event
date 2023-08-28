@@ -2,7 +2,11 @@
 
 namespace Raid\Core\Events\Contracts;
 
-interface EventableInterface
+use Raid\Core\Events\Contracts\Concerns\ActionEventInterface;
+use Raid\Core\Events\Contracts\Concerns\LazyEventInterface;
+use Raid\Core\Events\Contracts\Concerns\LoadedEventInterface;
+
+interface EventableInterface extends ActionEventInterface ,LazyEventInterface, LoadedEventInterface
 {
     /**
      * Set eventable class.
@@ -15,16 +19,6 @@ interface EventableInterface
     public function eventable(): string;
 
     /**
-     * Set action name.
-     */
-    public function setAction(string $action): EventableInterface;
-
-    /**
-     * Get action name.
-     */
-    public function action(): string;
-
-    /**
      * Set action events.
      */
     public function setEvents(array $events): EventableInterface;
@@ -33,36 +27,6 @@ interface EventableInterface
      * Get action events.
      */
     public function events(): array;
-
-    /**
-     * Set eventable lazy load state.
-     */
-    public function setLazyLoad(bool $lazyLoad): static;
-
-    /**
-     * Get eventable lazy load state.
-     */
-    public function lazyLoad(): bool;
-
-    /**
-     * Set eventable lazy load state to true.
-     */
-    public function withLazyLoad(): static;
-
-    /**
-     * Set eventable lazy load state to false.
-     */
-    public function withoutLazyLoad(): static;
-
-    /**
-     * Set eventable loaded state.
-     */
-    public function setLoaded(bool $loaded): void;
-
-    /**
-     * Determine if eventable is loaded.
-     */
-    public function loaded(): bool;
 
     /**
      * Initialize action event.
@@ -93,15 +57,4 @@ interface EventableInterface
      * Get eventable events.
      */
     public function getEventableEvents(): array;
-
-    /**
-     * Determine if the given action is the same as the current action.
-     * If the action is not the same, the eventable will be loaded again.
-     */
-    public function reloadAction(string $action): void;
-
-    /**
-     * Parse action.
-     */
-    public function parseAction(string $action): array;
 }
