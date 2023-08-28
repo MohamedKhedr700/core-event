@@ -1,13 +1,14 @@
 <?php
 
 use Raid\Core\Events\Contracts\EventableInterface;
+use Raid\Core\Events\Contracts\EventManagerInterface;
 use Raid\Core\Facades\Events\Events;
 
 if (! function_exists('events')) {
     /**
      * Get events facade instance.
      */
-    function events(string $eventable = '', string $action = '', array $data = []): Events
+    function events(string $eventable = '', string $action = '', array $data = []): EventManagerInterface
     {
         $eventManager = Events::getFacadeRoot();
 
