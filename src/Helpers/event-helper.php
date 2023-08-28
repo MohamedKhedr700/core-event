@@ -8,7 +8,7 @@ if (! function_exists('events')) {
     /**
      * Get event manager instance.
      */
-    function events(string $eventable = '', string $action = '', array $data = []): EventManagerInterface
+    function events(string $eventable = '', string $action = '', ...$data): EventManagerInterface
     {
         $eventManager = Event::getFacadeRoot();
 
@@ -17,7 +17,7 @@ if (! function_exists('events')) {
         }
 
         if ($action && $data) {
-            $eventManager->trigger($action, $data);
+            $eventManager->trigger($action, ...$data);
         }
 
         return $eventManager;
@@ -28,7 +28,7 @@ if (! function_exists('eventable')) {
     /**
      * Get eventable instance.
      */
-    function eventable(string $eventable = '', string $action = '', array $data = []): EventableInterface
+    function eventable(string $eventable = '', string $action = '', ...$data): EventableInterface
     {
         $eventableManager = app(EventableInterface::class, ['eventable' => $eventable]);
 
@@ -37,7 +37,7 @@ if (! function_exists('eventable')) {
         }
 
         if ($data) {
-            $eventableManager->trigger($action, $data);
+            $eventableManager->trigger($action, ...$data);
         }
 
         return $eventableManager;

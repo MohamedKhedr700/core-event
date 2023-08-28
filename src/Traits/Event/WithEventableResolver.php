@@ -149,6 +149,6 @@ trait WithEventableResolver
      */
     public function parseAction(string $action): array
     {
-        return array_values(explode(' ', $action));
+        return array_values(array_filter(explode(' ', $action)));
     }
 }
