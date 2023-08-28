@@ -60,6 +60,12 @@ trait WithLazyEvent
      */
     public function lazilyListener(string $listener): bool
     {
+        if (method_exists($listener, 'lazy')) {
+            return $listener->lazy();
+        }
+
+        return $this->lazilyEvent(static::class);
+
         return method_exists($listener, 'lazy') && $listener::lazy();
     }
 }
