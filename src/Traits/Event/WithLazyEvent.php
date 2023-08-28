@@ -7,7 +7,7 @@ trait WithLazyEvent
     /**
      * Indicates if the events should be run lazily.
      */
-    protected bool $lazyLoad = false;
+    protected bool $lazyLoad = true;
 
     /**
      * {@inheritdoc}
