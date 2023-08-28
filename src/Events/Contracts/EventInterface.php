@@ -29,7 +29,7 @@ interface EventInterface extends LoadedEventInterface
     /**
      * Load event listeners.
      */
-    public function loadListeners(bool $lazyLoad = true): array;
+    public function loadListeners(bool $lazyLoad): array;
 
     /**
      * Register init event.
