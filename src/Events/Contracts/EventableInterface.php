@@ -82,7 +82,7 @@ interface EventableInterface
     /**
      * Get action events.
      */
-    public function getActionEvents(string $action): array;
+    public function getActionEvents(array $action): array;
 
     /**
      * Get eventable events.
