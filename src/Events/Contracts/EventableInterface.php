@@ -94,4 +94,9 @@ interface EventableInterface
      * If the action is not the same, the eventable will be loaded again.
      */
     public function sameAction(string $action): void;
+
+    /**
+     * Parse action.
+     */
+    public function parseAction(string $action): array;
 }

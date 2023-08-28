@@ -145,7 +145,7 @@ trait WithEventableResolver
     }
 
     /**
-     * Parse action.
+     * {@inheritdoc}
      */
     public function parseAction(string $action): array
     {
