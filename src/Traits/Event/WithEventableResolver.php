@@ -27,7 +27,7 @@ trait WithEventableResolver
      */
     public function setAction(string $action): EventableInterface
     {
-        $this->sameAction($action);
+        $this->reloadAction($action);
 
         $this->action = $action;
 
@@ -105,11 +105,11 @@ trait WithEventableResolver
      */
     public function getActionEvents(array $action): array
     {
-        $repositoryEvents = $this->getEventableEvents();
+        $events = $this->getEventableEvents();
 
-        $events = [];
+        $loadedEvents = [];
 
-        foreach ($repositoryEvents as $event) {
+        foreach ($events as $event) {
             if (! in_array($event::action(), $action)) {
                 continue;
             }
@@ -118,10 +118,10 @@ trait WithEventableResolver
                 continue;
             }
 
-            $events[] = App::make($event);
+            $loadedEvents[] = App::make($event);
         }
 
-        return $events;
+        return $loadedEvents;
     }
 
     /**
@@ -135,7 +135,7 @@ trait WithEventableResolver
     /**
      * {@inheritdoc}
      */
-    public function sameAction(string $action): void
+    public function reloadAction(string $action): void
     {
         if (! isset($this->action) || $this->action() === $action) {
             return;

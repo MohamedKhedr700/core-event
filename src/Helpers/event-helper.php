@@ -44,12 +44,12 @@ if (! function_exists('eventable')) {
     }
 }
 
-if (! function_exists('concat_events')) {
+if (! function_exists('concat_actions')) {
     /**
-     * Concatenate events.
+     * Concatenate actions.
      */
-    function concat_events(...$events): string
+    function concat_actions(...$actions): string
     {
-        return implode(' ', $events);
+        return implode(' ', $actions);
     }
 }
