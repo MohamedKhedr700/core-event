@@ -35,19 +35,24 @@ interface EventableInterface
     public function events(): array;
 
     /**
-     * Set eventable lazy load state to true.
+     * Set eventable lazy load state.
      */
-    public function withLazyLoad(): EventableInterface;
-
-    /**
-     * Set eventable lazy load state to false.
-     */
-    public function withoutLazyLoad(): EventableInterface;
+    public function setLazyLoad(bool $lazyLoad): static;
 
     /**
      * Get eventable lazy load state.
      */
     public function lazyLoad(): bool;
+
+    /**
+     * Set eventable lazy load state to true.
+     */
+    public function withLazyLoad(): static;
+
+    /**
+     * Set eventable lazy load state to false.
+     */
+    public function withoutLazyLoad(): static;
 
     /**
      * Determine if eventable is loaded.

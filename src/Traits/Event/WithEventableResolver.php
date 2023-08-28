@@ -18,11 +18,6 @@ trait WithEventableResolver
     protected array $events = [];
 
     /**
-     * Indicates if the events should be run lazily.
-     */
-    protected bool $lazyLoad = true;
-
-    /**
      * Indicates if the events are loaded.
      */
     protected bool $loaded = false;
@@ -63,33 +58,7 @@ trait WithEventableResolver
         return $this->events;
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function withLazyLoad(): EventableInterface
-    {
-        $this->lazyLoad = true;
 
-        return $this;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function withoutLazyLoad(): EventableInterface
-    {
-        $this->lazyLoad = false;
-
-        return $this;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function lazyLoad(): bool
-    {
-        return $this->lazyLoad;
-    }
 
     /**
      * {@inheritdoc}

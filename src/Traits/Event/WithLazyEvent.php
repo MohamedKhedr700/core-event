@@ -2,8 +2,53 @@
 
 namespace Raid\Core\Traits\Event;
 
+use Raid\Core\Events\Contracts\EventableInterface;
+
 trait WithLazyEvent
 {
+    /**
+     * Indicates if the events should be run lazily.
+     */
+    protected bool $lazyLoad = true;
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setLazyLoad(bool $lazyLoad): static
+    {
+        $this->lazyLoad = $lazyLoad;
+
+        return $this;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function lazyLoad(): bool
+    {
+        return $this->lazyLoad;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function withLazyLoad(): static
+    {
+        $this->lazyLoad = true;
+
+        return $this;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function withoutLazyLoad(): static
+    {
+        $this->lazyLoad = false;
+
+        return $this;
+    }
+
     /**
      * Determine if the event listener should be lazily loaded.
      */
