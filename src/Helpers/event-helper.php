@@ -39,3 +39,13 @@ if (! function_exists('eventable')) {
         return $eventableManager;
     }
 }
+
+if (! function_exists('concat_events')) {
+    /**
+     * Concatenate events.
+     */
+    function concat_events(...$events): string
+    {
+        return implode(' ', $events);
+    }
+}
