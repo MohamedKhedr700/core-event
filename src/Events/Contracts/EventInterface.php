@@ -27,7 +27,7 @@ interface EventInterface
     /**
      * Determine if event listeners are loaded.
      */
-    public function isLoadedListeners(): bool;
+    public function loaded(): bool;
 
     /**
      * Load event listeners.

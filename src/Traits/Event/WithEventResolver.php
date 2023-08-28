@@ -15,7 +15,7 @@ trait WithEventResolver
     /**
      * Indicates if event listeners are loaded.
      */
-    protected bool $isLoadedListeners = false;
+    protected bool $loaded = false;
 
     /**
      * {@inheritdoc}
@@ -36,9 +36,9 @@ trait WithEventResolver
     /**
      * {@inheritdoc}
      */
-    public function isLoadedListeners(): bool
+    public function loaded(): bool
     {
-        return $this->isLoadedListeners;
+        return $this->loaded;
     }
 
     /**
@@ -46,7 +46,7 @@ trait WithEventResolver
      */
     public function loadListeners(bool $lazyLoad = true): array
     {
-        if ($this->isLoadedListeners()) {
+        if ($this->loaded()) {
             return $this->loadedListeners();
         }
 
@@ -64,7 +64,7 @@ trait WithEventResolver
 
         $this->setLoadedListeners($loadedListeners);
 
-        $this->isLoadedListeners = true;
+        $this->loaded = true;
 
         return $loadedListeners;
     }
