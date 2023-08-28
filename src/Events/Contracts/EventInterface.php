@@ -25,6 +25,11 @@ interface EventInterface
     public function loadedListeners(): array;
 
     /**
+     * Set listeners loaded state.
+     */
+    public function setLoaded(bool $loaded): void;
+
+    /**
      * Determine if event listeners are loaded.
      */
     public function loaded(): bool;

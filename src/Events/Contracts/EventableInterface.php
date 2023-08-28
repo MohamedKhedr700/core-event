@@ -55,6 +55,11 @@ interface EventableInterface
     public function withoutLazyLoad(): static;
 
     /**
+     * Set eventable loaded state.
+     */
+    public function setLoaded(bool $loaded): void;
+
+    /**
      * Determine if eventable is loaded.
      */
     public function loaded(): bool;

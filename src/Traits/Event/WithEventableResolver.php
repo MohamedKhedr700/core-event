@@ -18,11 +18,6 @@ trait WithEventableResolver
     protected array $events = [];
 
     /**
-     * Indicates if the events are loaded.
-     */
-    protected bool $loaded = false;
-
-    /**
      * {@inheritdoc}
      */
     public function setAction(string $action): EventableInterface
@@ -58,14 +53,6 @@ trait WithEventableResolver
     public function events(): array
     {
         return $this->events;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function loaded(): bool
-    {
-        return $this->loaded;
     }
 
     /**

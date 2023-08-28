@@ -6,12 +6,14 @@ use Raid\Core\Events\Contracts\EventableInterface;
 use Raid\Core\Traits\Event\WithEventable;
 use Raid\Core\Traits\Event\WithEventableResolver;
 use Raid\Core\Traits\Event\WithLazyEvent;
+use Raid\Core\Traits\Event\WithLoadEvent;
 
 class Eventable implements EventableInterface
 {
     use WithEventable,
         WithEventableResolver,
-        WithLazyEvent;
+        WithLazyEvent,
+        WithLoadEvent;
 
     /**
      * Create a new event action instance.

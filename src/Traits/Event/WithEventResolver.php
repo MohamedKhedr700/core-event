@@ -13,11 +13,6 @@ trait WithEventResolver
     protected array $loadedListeners = [];
 
     /**
-     * Indicates if event listeners are loaded.
-     */
-    protected bool $loaded = false;
-
-    /**
      * {@inheritdoc}
      */
     public function setLoadedListeners(array $loadedListeners): void
@@ -31,14 +26,6 @@ trait WithEventResolver
     public function loadedListeners(): array
     {
         return $this->loadedListeners;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function loaded(): bool
-    {
-        return $this->loaded;
     }
 
     /**
