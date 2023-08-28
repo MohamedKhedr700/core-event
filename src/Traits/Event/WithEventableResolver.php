@@ -27,6 +27,8 @@ trait WithEventableResolver
      */
     public function setAction(string $action): EventableInterface
     {
+        $this->sameAction($action);
+
         $this->action = $action;
 
         return $this;
@@ -58,8 +60,6 @@ trait WithEventableResolver
         return $this->events;
     }
 
-
-
     /**
      * {@inheritdoc}
      */
@@ -73,11 +73,15 @@ trait WithEventableResolver
      */
     public function LoadEvents(string $action): void
     {
+        $this->setAction($action);
+
         if ($this->loaded()) {
             return;
         }
 
-        $events = $this->getActionEvents($action);
+        $parsedAction = $this->parseAction($action);
+
+        $events = $this->getActionEvents($parsedAction);
 
         $this->setEvents($events);
 
@@ -99,14 +103,14 @@ trait WithEventableResolver
     /**
      * {@inheritdoc}
      */
-    public function getActionEvents(string $action): array
+    public function getActionEvents(array $action): array
     {
         $repositoryEvents = $this->getEventableEvents();
 
         $events = [];
 
         foreach ($repositoryEvents as $event) {
-            if ($event::action() !== $action) {
+            if (! in_array($event::getAction(), $action)) {
                 continue;
             }
 
@@ -126,5 +130,25 @@ trait WithEventableResolver
     public function getEventableEvents(): array
     {
         return $this->eventable()::getEvents();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function sameAction(string $action): void
+    {
+        if ($this->action() === $action) {
+            return;
+        }
+
+        $this->loaded = false;
+    }
+
+    /**
+     * Parse action.
+     */
+    public function parseAction(string $action): array
+    {
+        return array_values(explode(' ', $action));
     }
 }

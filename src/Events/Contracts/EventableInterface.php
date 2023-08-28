@@ -88,4 +88,10 @@ interface EventableInterface
      * Get eventable events.
      */
     public function getEventableEvents(): array;
+
+    /**
+     * Determine if the given action is the same as the current action.
+     * If the action is not the same, the eventable will be loaded again.
+     */
+    public function sameAction(string $action): void;
 }
