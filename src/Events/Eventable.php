@@ -16,10 +16,9 @@ class Eventable implements EventableInterface
     /**
      * Create a new event action instance.
      */
-    public function __construct(string $eventable, string $action = '')
+    public function __construct(string $eventable)
     {
         $this->setEventable($eventable);
-        $this->setAction($action);
     }
 
     /**

@@ -28,11 +28,14 @@ if (! function_exists('eventable')) {
     /**
      * Get eventable instance.
      */
-    function eventable(string $eventable, string $action = ''): EventableInterface
+    function eventable(string $eventable = '', string $action = '', array $data = []): EventableInterface
     {
-        return app(EventableInterface::class, [
-            'eventable' => $eventable,
-            'action' => $action,
-        ]);
+        $eventableManager = app(EventableInterface::class, ['eventable' => $eventable]);
+
+        if ($action && $data) {
+            $eventableManager->trigger($action, $data);
+        }
+
+        return $eventableManager;
     }
 }
