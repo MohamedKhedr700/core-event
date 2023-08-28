@@ -15,45 +15,35 @@ class EventManager implements EventManagerInterface
      *
      * @throws Exception
      */
-    public function trigger(string $events, ...$data): void
+    public function trigger(string $event, ...$data): void
     {
-        $events = $this->parseEvents($events);
+        $parsedEvent = $this->parseEvents($event);
 
-        foreach ($events as $event) {
-            $this->triggerEvent($event, ...$data);
-        }
-    }
+        $eventableClass = $this->getEventableClass($this->eventable());
 
-    /**
-     * {@inheritdoc}
-     *
-     * @throws Exception
-     */
-    public function triggerEvent(string $event, ...$data): void
-    {
-        [$eventable, $action] = $this->parseEvent($event);
-
-        $eventableClass = $this->getEventableClass($eventable);
-
-        eventable($eventableClass)->trigger($action, ...$data);
+        eventable($eventableClass, $parsedEvent, $data);
     }
 
     /**
      * Prepare events.
      */
-    private function parseEvents(string $events): array
+    private function parseEvents(string $events): string
     {
-        $events = explode(' ', $events);
-
-        if (! $this->withEventable()) {
+        if ($this->withEventable()) {
             return $events;
         }
 
+        $events = explode(' ', $events);
+
+        $eventable = $this->getEventableName(head($events));
+
+        $this->setEventable($eventable);
+
         foreach ($events as &$event) {
-            $event = $this->eventable().'.'.$event;
+            $event = str_replace($eventable.'.', '', $event);
         }
 
-        return $events;
+        return implode(' ', $events);
     }
 
     /**
@@ -62,6 +52,14 @@ class EventManager implements EventManagerInterface
     private function parseEvent(string $event): array
     {
         return explode('.', $event);
+    }
+
+    /**
+     * Get eventable name.
+     */
+    private function getEventableName(string $event): string
+    {
+        return explode('.', $event)[0] ?? '';
     }
 
     /**
