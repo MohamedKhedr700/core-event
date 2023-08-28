@@ -17,7 +17,7 @@ class EventManager implements EventManagerInterface
      */
     public function trigger(string $event, ...$data): void
     {
-        $parsedEvent = $this->parseEvents($event);
+        $parsedEvent = $this->parseEvent($event);
 
         $eventableClass = $this->getEventableClass($this->eventable());
 
@@ -25,15 +25,15 @@ class EventManager implements EventManagerInterface
     }
 
     /**
-     * Prepare events.
+     * Parse event.
      */
-    private function parseEvents(string $events): string
+    private function parseEvent(string $event): string
     {
         if ($this->withEventable()) {
-            return $events;
+            return $event;
         }
 
-        $events = array_values(array_filter(explode(' ', $events)));
+        $events = array_values(array_filter(explode(' ', $event)));
 
         $eventable = $this->getEventableName(head($events));
 
@@ -44,14 +44,6 @@ class EventManager implements EventManagerInterface
         }
 
         return implode(' ', $events);
-    }
-
-    /**
-     * Parse event.
-     */
-    private function parseEvent(string $event): array
-    {
-        return explode('.', $event);
     }
 
     /**

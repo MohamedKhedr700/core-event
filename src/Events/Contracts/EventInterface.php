@@ -5,6 +5,16 @@ namespace Raid\Core\Events\Contracts;
 interface EventInterface
 {
     /**
+     * Get event action.
+     */
+    public static function action(): string;
+
+    /**
+     * Get event listeners.
+     */
+    public static function listeners(): array;
+
+    /**
      * Set loaded listeners.
      */
     public function setLoadedListeners(array $loadedListeners): void;
@@ -23,16 +33,6 @@ interface EventInterface
      * Load event listeners.
      */
     public function loadListeners(bool $lazyLoad = true): array;
-
-    /**
-     * Get event action.
-     */
-    public static function action(): string;
-
-    /**
-     * Get event listeners.
-     */
-    public static function listeners(): array;
 
     /**
      * Register init event.
