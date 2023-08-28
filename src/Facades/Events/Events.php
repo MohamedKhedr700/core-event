@@ -8,10 +8,10 @@ use Raid\Core\Facades\Facade;
 /**
  * @mixin EventManagerInterface
  */
-class Event extends Facade
+class Events extends Facade
 {
     /**
      * {@inheritdoc}
      */
-    public const FACADE = 'Event';
+    public const FACADE = 'Events';
 }

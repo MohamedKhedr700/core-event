@@ -10,7 +10,7 @@ return [
     |
     */
 
-    'event_handler' => Raid\Core\Events\EventManager::class,
+    'events_handler' => Raid\Core\Events\EventManager::class,
 
     /*
     |--------------------------------------------------------------------------

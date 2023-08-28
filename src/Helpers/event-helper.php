@@ -2,7 +2,7 @@
 
 use Raid\Core\Events\Contracts\EventableInterface;
 use Raid\Core\Events\Contracts\EventManagerInterface;
-use Raid\Core\Facades\Events\Event;
+use Raid\Core\Facades\Events\Events;
 
 if (! function_exists('events')) {
     /**
@@ -10,7 +10,7 @@ if (! function_exists('events')) {
      */
     function events(string $eventable = '', string $action = '', array $data = []): EventManagerInterface
     {
-        $eventManager = Event::getFacadeRoot();
+        $eventManager = Events::getFacadeRoot();
 
         if ($eventable) {
             $eventManager->setEventable($eventable);
