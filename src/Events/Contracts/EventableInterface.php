@@ -6,7 +6,7 @@ use Raid\Core\Events\Contracts\Concerns\ActionEventInterface;
 use Raid\Core\Events\Contracts\Concerns\LazyEventInterface;
 use Raid\Core\Events\Contracts\Concerns\LoadedEventInterface;
 
-interface EventableInterface extends ActionEventInterface ,LazyEventInterface, LoadedEventInterface
+interface EventableInterface extends ActionEventInterface, LazyEventInterface, LoadedEventInterface
 {
     /**
      * Set eventable class.

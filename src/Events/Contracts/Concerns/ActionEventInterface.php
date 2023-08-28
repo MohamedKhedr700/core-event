@@ -2,8 +2,6 @@
 
 namespace Raid\Core\Events\Contracts\Concerns;
 
-use Raid\Core\Events\Contracts\EventableInterface;
-
 interface ActionEventInterface
 {
     /**

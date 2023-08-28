@@ -2,8 +2,6 @@
 
 namespace Raid\Core\Traits\Event;
 
-use Raid\Core\Events\Contracts\EventableInterface;
-
 trait WithActionEvent
 {
     /**
