@@ -8,7 +8,7 @@ if (! function_exists('events')) {
     /**
      * Get event manager instance.
      */
-    function events(string $eventable = '', string $action = '', ...$data): EventManagerInterface
+    function events(string $eventable = '', string $action = '', array $data = []): EventManagerInterface
     {
         $eventManager = Event::getFacadeRoot();
 
@@ -28,7 +28,7 @@ if (! function_exists('eventable')) {
     /**
      * Get eventable instance.
      */
-    function eventable(string $eventable = '', string $action = '', ...$data): EventableInterface
+    function eventable(string $eventable = '', string $action = '', array $data = []): EventableInterface
     {
         $eventableManager = app(EventableInterface::class, ['eventable' => $eventable]);
 
