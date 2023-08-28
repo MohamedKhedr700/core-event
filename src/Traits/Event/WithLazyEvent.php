@@ -7,7 +7,7 @@ trait WithLazyEvent
     /**
      * Indicates if the events should be run lazily.
      */
-    protected bool $lazyLoad = true;
+    protected bool $lazyLoad = false;
 
     /**
      * {@inheritdoc}
@@ -60,12 +60,6 @@ trait WithLazyEvent
      */
     public function lazilyListener(string $listener): bool
     {
-        if (method_exists($listener, 'lazy')) {
-            return $listener->lazy();
-        }
-
-        return $this->lazilyEvent(static::class);
-
         return method_exists($listener, 'lazy') && $listener::lazy();
     }
 }

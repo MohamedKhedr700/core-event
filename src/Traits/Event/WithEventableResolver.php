@@ -76,7 +76,7 @@ trait WithEventableResolver
                 continue;
             }
 
-            if ($this->lazyLoad() && $this->lazilyEvent($event)) {
+            if ($this->lazyLoad() || $this->lazilyEvent($event)) {
                 continue;
             }
 

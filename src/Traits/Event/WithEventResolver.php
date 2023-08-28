@@ -42,7 +42,7 @@ trait WithEventResolver
         $loadedListeners = [];
 
         foreach ($listeners as $listener) {
-            if ($lazyLoad && $this->lazilyListener($listener)) {
+            if ($lazyLoad || $this->lazilyListener($listener)) {
                 continue;
             }
 
