@@ -15,13 +15,15 @@ class EventManager implements EventManagerInterface
      *
      * @throws Exception
      */
-    public function trigger(string $event, ...$data): void
+    public function trigger(string $event, ...$data): static
     {
         $parsedEvent = $this->parseEvent($event);
 
         $eventableClass = $this->getEventableClass($this->eventable());
 
         eventable($eventableClass, $parsedEvent, $data);
+
+        return $this;
     }
 
     /**

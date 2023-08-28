@@ -22,5 +22,5 @@ interface EventManagerInterface
     /**
      * Trigger the events.
      */
-    public function trigger(string $event, ...$data): void;
+    public function trigger(string $event, ...$data): static;
 }
