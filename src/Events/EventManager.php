@@ -77,6 +77,6 @@ class EventManager implements EventManagerInterface
             return $eventableClass;
         }
 
-        throw new Exception("Eventable {$eventable} not found.");
+        throw new Exception("Eventable {$eventable} not found in config/event.events");
     }
 }
