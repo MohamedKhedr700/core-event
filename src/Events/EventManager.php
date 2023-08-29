@@ -5,10 +5,12 @@ namespace Raid\Core\Events;
 use Exception;
 use Raid\Core\Events\Contracts\EventManagerInterface;
 use Raid\Core\Traits\Event\WithEventable;
+use Raid\Core\Traits\Event\WithEventableResponse;
 
 class EventManager implements EventManagerInterface
 {
-    use WithEventable;
+    use WithEventable,
+        WithEventableResponse;
 
     /**
      * {@inheritdoc}

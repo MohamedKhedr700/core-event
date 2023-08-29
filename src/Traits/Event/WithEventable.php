@@ -12,11 +12,6 @@ trait WithEventable
     protected string $eventable;
 
     /**
-     * Eventable response instance.
-     */
-    protected EventableInterface $eventableResponse;
-
-    /**
      * {@inheritdoc}
      */
     public function setEventable(string $eventable): static
@@ -32,22 +27,6 @@ trait WithEventable
     public function eventable(): string
     {
         return $this->eventable;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function setEventableResponse(EventableInterface $eventableResponse): void
-    {
-        $this->eventableResponse = $eventableResponse;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function response(): EventableInterface
-    {
-        return $this->eventableResponse;
     }
 
     /**
