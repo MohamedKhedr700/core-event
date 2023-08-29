@@ -1,8 +1,8 @@
 <?php
 
-namespace Raid\Core\Jobs;
+namespace Raid\Core\Event\Jobs;
 
-use Raid\Core\Events\Contracts\EventListenerInterface;
+use Raid\Core\Event\Events\Contracts\EventListenerInterface;
 
 class EventListenerQueue extends Queue
 {

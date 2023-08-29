@@ -1,8 +1,8 @@
 <?php
 
-namespace Raid\Core\Events\Contracts;
+namespace Raid\Core\Event\Events\Contracts;
 
-use Raid\Core\Events\Contracts\Concerns\LoadedEventInterface;
+use Raid\Core\Event\Events\Contracts\Concerns\LoadedEventInterface;
 
 interface EventInterface extends LoadedEventInterface
 {

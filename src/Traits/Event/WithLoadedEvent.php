@@ -1,6 +1,6 @@
 <?php
 
-namespace Raid\Core\Traits\Event;
+namespace Raid\Core\Event\Traits\Event;
 
 trait WithLoadedEvent
 {

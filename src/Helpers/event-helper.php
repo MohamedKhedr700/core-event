@@ -1,8 +1,8 @@
 <?php
 
-use Raid\Core\Events\Contracts\EventableInterface;
-use Raid\Core\Events\Contracts\EventManagerInterface;
-use Raid\Core\Facades\Events\Events;
+use Raid\Core\Event\Events\Contracts\EventableInterface;
+use Raid\Core\Event\Events\Contracts\EventManagerInterface;
+use Raid\Core\Event\Facades\Events\Events;
 
 if (! function_exists('events')) {
     /**

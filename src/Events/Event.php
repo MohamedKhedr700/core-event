@@ -1,12 +1,12 @@
 <?php
 
-namespace Raid\Core\Events;
+namespace Raid\Core\Event\Events;
 
-use Raid\Core\Events\Contracts\EventInterface;
-use Raid\Core\Traits\Event\WithEventResolver;
-use Raid\Core\Traits\Event\WithLazyEvent;
-use Raid\Core\Traits\Event\WithLoadedEvent;
-use Raid\Core\Traits\Event\WithQueueEvent;
+use Raid\Core\Event\Events\Contracts\EventInterface;
+use Raid\Core\Event\Traits\Event\WithEventResolver;
+use Raid\Core\Event\Traits\Event\WithLazyEvent;
+use Raid\Core\Event\Traits\Event\WithLoadedEvent;
+use Raid\Core\Event\Traits\Event\WithQueueEvent;
 
 abstract class Event implements EventInterface
 {

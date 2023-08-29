@@ -1,10 +1,10 @@
 <?php
 
-namespace Raid\Core\Events\Contracts;
+namespace Raid\Core\Event\Events\Contracts;
 
-use Raid\Core\Events\Contracts\Concerns\ActionEventInterface;
-use Raid\Core\Events\Contracts\Concerns\LazyEventInterface;
-use Raid\Core\Events\Contracts\Concerns\LoadedEventInterface;
+use Raid\Core\Event\Events\Contracts\Concerns\ActionEventInterface;
+use Raid\Core\Event\Events\Contracts\Concerns\LazyEventInterface;
+use Raid\Core\Event\Events\Contracts\Concerns\LoadedEventInterface;
 
 interface EventableInterface extends ActionEventInterface, LazyEventInterface, LoadedEventInterface
 {

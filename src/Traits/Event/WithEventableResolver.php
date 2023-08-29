@@ -1,9 +1,9 @@
 <?php
 
-namespace Raid\Core\Traits\Event;
+namespace Raid\Core\Event\Traits\Event;
 
 use Illuminate\Support\Facades\App;
-use Raid\Core\Events\Contracts\EventableInterface;
+use Raid\Core\Event\Events\Contracts\EventableInterface;
 
 trait WithEventableResolver
 {

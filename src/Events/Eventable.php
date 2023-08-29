@@ -1,13 +1,13 @@
 <?php
 
-namespace Raid\Core\Events;
+namespace Raid\Core\Event\Events;
 
-use Raid\Core\Events\Contracts\EventableInterface;
-use Raid\Core\Traits\Event\WithActionEvent;
-use Raid\Core\Traits\Event\WithEventable;
-use Raid\Core\Traits\Event\WithEventableResolver;
-use Raid\Core\Traits\Event\WithLazyEvent;
-use Raid\Core\Traits\Event\WithLoadedEvent;
+use Raid\Core\Event\Events\Contracts\EventableInterface;
+use Raid\Core\Event\Traits\Event\WithActionEvent;
+use Raid\Core\Event\Traits\Event\WithEventable;
+use Raid\Core\Event\Traits\Event\WithEventableResolver;
+use Raid\Core\Event\Traits\Event\WithLazyEvent;
+use Raid\Core\Event\Traits\Event\WithLoadedEvent;
 
 class Eventable implements EventableInterface
 {

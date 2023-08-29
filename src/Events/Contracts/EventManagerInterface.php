@@ -1,6 +1,6 @@
 <?php
 
-namespace Raid\Core\Events\Contracts;
+namespace Raid\Core\Event\Events\Contracts;
 
 interface EventManagerInterface
 {

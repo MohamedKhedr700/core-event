@@ -1,8 +1,8 @@
 <?php
 
-namespace Raid\Core\Jobs;
+namespace Raid\Core\Event\Jobs;
 
-use Raid\Core\Events\Contracts\EventInterface;
+use Raid\Core\Event\Events\Contracts\EventInterface;
 
 class EventManagerQueue extends Queue
 {

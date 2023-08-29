@@ -1,10 +1,10 @@
 <?php
 
-namespace Raid\Core\Traits\Event;
+namespace Raid\Core\Event\Traits\Event;
 
-use Raid\Core\Events\Contracts\EventListenerInterface;
-use Raid\Core\Jobs\EventListenerQueue;
-use Raid\Core\Jobs\EventManagerQueue;
+use Raid\Core\Event\Events\Contracts\EventListenerInterface;
+use Raid\Core\Event\Jobs\EventListenerQueue;
+use Raid\Core\Event\Jobs\EventManagerQueue;
 
 trait WithQueueEvent
 {

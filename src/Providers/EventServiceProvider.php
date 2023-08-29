@@ -1,9 +1,9 @@
 <?php
 
-namespace Raid\Core\Providers;
+namespace Raid\Core\Event\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Raid\Core\Traits\Provider\WithEventServiceProviderResolver;
+use Raid\Core\Event\Traits\Provider\WithEventServiceProviderResolver;
 
 class EventServiceProvider extends ServiceProvider
 {

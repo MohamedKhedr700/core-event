@@ -1,9 +1,9 @@
 <?php
 
-namespace Raid\Core\Facades\Events;
+namespace Raid\Core\Event\Facades\Events;
 
-use Raid\Core\Events\Contracts\EventManagerInterface;
-use Raid\Core\Facades\Facade;
+use Raid\Core\Event\Events\Contracts\EventManagerInterface;
+use Raid\Core\Event\Facades\Facade;
 
 /**
  * @mixin EventManagerInterface

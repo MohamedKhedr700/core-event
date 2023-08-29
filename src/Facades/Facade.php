@@ -1,6 +1,6 @@
 <?php
 
-namespace Raid\Core\Facades;
+namespace Raid\Core\Event\Facades;
 
 use Illuminate\Support\Facades\Facade as BaseFacade;
 

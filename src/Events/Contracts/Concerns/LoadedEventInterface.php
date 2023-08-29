@@ -1,6 +1,6 @@
 <?php
 
-namespace Raid\Core\Events\Contracts\Concerns;
+namespace Raid\Core\Event\Events\Contracts\Concerns;
 
 interface LoadedEventInterface
 {

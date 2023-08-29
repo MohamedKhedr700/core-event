@@ -1,11 +1,11 @@
 <?php
 
-namespace Raid\Core\Events;
+namespace Raid\Core\Event\Events;
 
 use Exception;
-use Raid\Core\Events\Contracts\EventManagerInterface;
-use Raid\Core\Traits\Event\WithEventable;
-use Raid\Core\Traits\Event\WithEventableResponse;
+use Raid\Core\Event\Events\Contracts\EventManagerInterface;
+use Raid\Core\Event\Traits\Event\WithEventable;
+use Raid\Core\Event\Traits\Event\WithEventableResponse;
 
 class EventManager implements EventManagerInterface
 {
