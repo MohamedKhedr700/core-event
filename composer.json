@@ -32,12 +32,12 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Raid\\Core\\Providers\\EventServiceProvider"
+                "Raid\\Core\\Event\\Providers\\EventServiceProvider"
             ]
         }
     },
     "aliases": {
-        "Events": "Raid\\Core\\Facades\\Events"
+        "Events": "Raid\\Core\\Event\\Facades\\Events"
     },
     "authors": [
         {
