@@ -4,9 +4,9 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Event Handler
+    | Events Handler
     |--------------------------------------------------------------------------
-    | Here you can define the event handler that will be used in the application.
+    | Here you can define the events handler that will be used in the application.
     |
     */
 
