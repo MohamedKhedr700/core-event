@@ -43,13 +43,3 @@ if (! function_exists('eventable')) {
         return $eventableManager;
     }
 }
-
-if (! function_exists('concat_actions')) {
-    /**
-     * Concatenate actions.
-     */
-    function concat_actions(...$actions): string
-    {
-        return implode(' ', $actions);
-    }
-}
