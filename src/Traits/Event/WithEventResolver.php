@@ -2,7 +2,6 @@
 
 namespace Raid\Core\Event\Traits\Event;
 
-use Illuminate\Support\Facades\App;
 use Raid\Core\Event\Events\Contracts\EventListenerInterface;
 
 trait WithEventResolver
@@ -46,7 +45,7 @@ trait WithEventResolver
                 continue;
             }
 
-            $loadedListeners[] = App::make($listener);
+            $loadedListeners[] = app($listener);
         }
 
         $this->setLoadedListeners($loadedListeners);

@@ -2,7 +2,6 @@
 
 namespace Raid\Core\Event\Traits\Event;
 
-use Illuminate\Support\Facades\App;
 use Raid\Core\Event\Events\Contracts\EventableInterface;
 
 trait WithEventableResolver
@@ -80,7 +79,7 @@ trait WithEventableResolver
                 continue;
             }
 
-            $loadedEvents[] = App::make($event);
+            $loadedEvents[] = app($event);
         }
 
         return $loadedEvents;
