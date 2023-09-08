@@ -3,6 +3,7 @@
 namespace Raid\Core\Event\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Raid\Core\Event\Commands\PublishCommand;
 use Raid\Core\Event\Traits\Provider\WithEventServiceProviderResolver;
 
 class EventServiceProvider extends ServiceProvider
@@ -12,7 +13,9 @@ class EventServiceProvider extends ServiceProvider
     /**
      * The commands to be registered.
      */
-    protected array $commands = [];
+    protected array $commands = [
+        PublishCommand::class,
+    ];
 
     /**
      * Register any application services.

@@ -8,12 +8,12 @@ class PublishCommand extends Command
     /**
      * The console command name.
      */
-    protected string $name = 'publish:core-event';
+    protected $name = 'publish:core-event';
 
     /**
      * The console command description.
      */
-    protected string $description = 'Publish core event config files.';
+    protected $description = 'Publish core event config files.';
 
     /**
      * Execute the console command.
