@@ -21,6 +21,7 @@ class EventServiceProvider extends ServiceProvider
     {
         $this->registerConfig();
         $this->registerHelpers();
+        $this->registerCommands();
     }
 
     /**

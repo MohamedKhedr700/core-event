@@ -19,7 +19,7 @@ trait WithEventServiceProviderResolver
 
             $this->publishes([
                 $config => config_path(basename($config)),
-            ], 'config');
+            ], 'config-event');
         }
     }
 
@@ -33,6 +33,14 @@ trait WithEventServiceProviderResolver
         foreach ($helpers as $helper) {
             require_once $helper;
         }
+    }
+
+    /**
+     * Register commands.
+     */
+    private function registerCommands(): void
+    {
+        $this->commands($this->commands);
     }
 
     /**
