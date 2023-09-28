@@ -3,7 +3,7 @@
 namespace Raid\Core\Event\Commands;
 
 use Illuminate\Support\Facades\File;
-use Raid\Core\Command\Traits\CreateCommand;
+use Raid\Core\Command\Commands\CreateCommand;
 
 class CreateEventCommand extends CreateCommand
 {

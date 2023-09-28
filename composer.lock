@@ -59,12 +59,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/MohamedKhedr700/core-command.git",
-                "reference": "e0bd6c3ada8d4fce463025a7adba819af7ad9ac1"
+                "reference": "6fbd6389463c229851cd559024c116db26856cff"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/MohamedKhedr700/core-command/zipball/e0bd6c3ada8d4fce463025a7adba819af7ad9ac1",
-                "reference": "e0bd6c3ada8d4fce463025a7adba819af7ad9ac1",
+                "url": "https://api.github.com/repos/MohamedKhedr700/core-command/zipball/6fbd6389463c229851cd559024c116db26856cff",
+                "reference": "6fbd6389463c229851cd559024c116db26856cff",
                 "shasum": ""
             },
             "require": {
@@ -108,7 +108,7 @@
                 "issues": "https://github.com/MohamedKhedr700/core-command/issues",
                 "source": "https://github.com/MohamedKhedr700/core-command/tree/main"
             },
-            "time": "2023-09-28T22:49:35+00:00"
+            "time": "2023-09-28T22:59:26+00:00"
         },
         {
             "name": "raid/core-enum",
