@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Console\Commands;
+namespace Raid\Core\Event\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;

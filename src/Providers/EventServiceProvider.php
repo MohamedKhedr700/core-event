@@ -2,8 +2,8 @@
 
 namespace Raid\Core\Event\Providers;
 
-use App\Console\Commands\CreateEventCommand;
 use Illuminate\Support\ServiceProvider;
+use Raid\Core\Event\Commands\CreateEventCommand;
 use Raid\Core\Event\Commands\PublishCommand;
 use Raid\Core\Event\Traits\Provider\WithEventServiceProviderResolver;
 
