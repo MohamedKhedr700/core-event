@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cb276ac0ec8af85ff9610abb7f053bbb",
+    "content-hash": "1d4559b37bd60b9bd9a8dad429b50ea2",
     "packages": [
         {
             "name": "archtechx/enums",
@@ -59,12 +59,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/MohamedKhedr700/core-command.git",
-                "reference": "c8f11d1355896e5d375962916a9bbaac05623ec1"
+                "reference": "0a422abf458c8fd329eba6166acb6ff8b357df33"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/MohamedKhedr700/core-command/zipball/c8f11d1355896e5d375962916a9bbaac05623ec1",
-                "reference": "c8f11d1355896e5d375962916a9bbaac05623ec1",
+                "url": "https://api.github.com/repos/MohamedKhedr700/core-command/zipball/0a422abf458c8fd329eba6166acb6ff8b357df33",
+                "reference": "0a422abf458c8fd329eba6166acb6ff8b357df33",
                 "shasum": ""
             },
             "require": {
@@ -108,7 +108,7 @@
                 "issues": "https://github.com/MohamedKhedr700/core-command/issues",
                 "source": "https://github.com/MohamedKhedr700/core-command/tree/main"
             },
-            "time": "2023-09-28T22:16:07+00:00"
+            "time": "2023-09-28T22:40:50+00:00"
         },
         {
             "name": "raid/core-enum",

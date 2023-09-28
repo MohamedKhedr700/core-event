@@ -2,27 +2,24 @@
 
 namespace Raid\Core\Event\Commands;
 
-use Illuminate\Console\Command;
-
-class PublishCommand extends Command
+use Raid\Core\Command\Commands\PublishCommand as CorePublishCommand;
+class PublishCommand extends CorePublishCommand
 {
     /**
-     * The console command name.
+     * {@inheritdoc}
      */
     protected $name = 'core:event publish';
 
     /**
-     * The console command description.
+     * {@inheritdoc}
      */
     protected $description = 'Publish core event config files.';
 
     /**
-     * Execute the console command.
+     * {@inheritdoc}
      */
     public function handle(): void
     {
-        $this->call('vendor:publish', [
-            '--tag' => 'config-event',
-        ]);
+        $this->publish('config-event');
     }
 }
