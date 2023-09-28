@@ -3,9 +3,9 @@
 namespace Raid\Core\Event\Commands;
 
 use Illuminate\Support\Facades\File;
-use Raid\Core\Command\Traits\Command;
+use Raid\Core\Command\Traits\CreateCommand;
 
-class CreateEventCommand extends Command
+class CreateEventCommand extends CreateCommand
 {
     /**
      * The name and signature of the console command.
