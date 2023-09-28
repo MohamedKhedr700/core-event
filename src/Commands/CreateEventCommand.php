@@ -2,9 +2,9 @@
 
 namespace Raid\Core\Event\Commands;
 
-use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Pluralizer;
+use Raid\Core\Command\Traits\Command;
 
 class CreateEventCommand extends Command
 {
@@ -23,22 +23,7 @@ class CreateEventCommand extends Command
      */
     public function handle(): void
     {
-        $path = $this->getSourceFilePath();
-
-        $this->makeDirectory(dirname($path));
-
-        $contents = $this->getSourceFile();
-
-        if (File::exists($path)) {
-
-            $this->info("File : {$path} already exits");
-
-            return;
-        }
-
-        File::put($path, $contents);
-
-        $this->info("File : {$path} created");
+        $this->create();
     }
 
     /**
@@ -61,52 +46,10 @@ class CreateEventCommand extends Command
     }
 
     /**
-     * Get the stub path and the stub variables.
-     */
-    public function getSourceFile(): mixed
-    {
-        return $this->getStubContents($this->getStubPath(), $this->getStubVariables());
-    }
-
-    /**
-     * Replace the stub variables(key) with the desire value.
-     */
-    public function getStubContents($stub, $stubVariables = []): array|false|string
-    {
-        $contents = file_get_contents($stub);
-
-        foreach ($stubVariables as $search => $replace) {
-            $contents = str_replace('$'.$search.'$', $replace, $contents);
-        }
-
-        return $contents;
-    }
-
-    /**
      * Get the full path of generated class.
      */
     public function getSourceFilePath(): string
     {
         return app_path('Events/'.$this->getClassName()).'.php';
-    }
-
-    /**
-     * Return the Singular Capitalize Name.
-     */
-    public function getClassName(): string
-    {
-        return ucwords(Pluralizer::singular($this->argument('classname')));
-    }
-
-    /**
-     * Build the directory for the class if necessary.
-     */
-    protected function makeDirectory($path)
-    {
-        if (! File::isDirectory($path)) {
-            File::makeDirectory($path, 0777, true, true);
-        }
-
-        return $path;
     }
 }
