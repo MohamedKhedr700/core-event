@@ -5,7 +5,7 @@ namespace $NAMESPACE$;
 use Raid\Core\Event\Events\Contracts\EventInterface;
 use Raid\Core\Event\Events\Event;
 
-interface $CLASS_NAME$Interface extends Event implements EventInterface
+class $CLASS_NAME$ extends Event implements EventInterface
 {
     /**
      * {@inheritdoc}

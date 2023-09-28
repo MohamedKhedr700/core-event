@@ -11,7 +11,7 @@ class CreateEventCommand extends Command
     /**
      * The name and signature of the console command.
      */
-    protected $signature = 'core:event make {name}';
+    protected $signature = 'core:event-make {name}';
 
     /**
      * The console command description.
@@ -71,7 +71,7 @@ class CreateEventCommand extends Command
     {
         return [
             'NAMESPACE' => 'App\\Events',
-            'CLASS_NAME' => $this->getSingularClassName($this->argument('name')),
+            'CLASS_NAME' => $this->getClassName(),
         ];
     }
 
@@ -102,15 +102,15 @@ class CreateEventCommand extends Command
      */
     public function getSourceFilePath(): string
     {
-        return base_path('App\\Events').'\\'.$this->getSingularClassName($this->argument('name')).'Event.php';
+        return app_path('Events/'.$this->getClassName()).'.php';
     }
 
     /**
      * Return the Singular Capitalize Name.
      */
-    public function getSingularClassName($name): string
+    public function getClassName(): string
     {
-        return ucwords(Pluralizer::singular($name));
+        return ucwords(Pluralizer::singular($this->argument('name')));
     }
 
     /**
