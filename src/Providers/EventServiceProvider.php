@@ -4,6 +4,7 @@ namespace Raid\Core\Event\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Raid\Core\Event\Commands\CreateEventCommand;
+use Raid\Core\Event\Commands\CreateListenerCommand;
 use Raid\Core\Event\Commands\PublishCommand;
 use Raid\Core\Event\Traits\Provider\WithEventServiceProviderResolver;
 
@@ -17,6 +18,7 @@ class EventServiceProvider extends ServiceProvider
     protected array $commands = [
         PublishCommand::class,
         CreateEventCommand::class,
+        CreateListenerCommand::class,
     ];
 
     /**

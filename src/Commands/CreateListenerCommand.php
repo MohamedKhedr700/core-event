@@ -6,17 +6,17 @@ use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Pluralizer;
 
-class CreateEventCommand extends Command
+class CreateListenerCommand extends Command
 {
     /**
      * The name and signature of the console command.
      */
-    protected $signature = 'core:make-event {classname}';
+    protected $signature = 'core:make-listener {classname}';
 
     /**
      * The console command description.
      */
-    protected $description = 'Make an event class';
+    protected $description = 'Make an listener class';
 
     /**
      * Execute the console command.
@@ -46,7 +46,7 @@ class CreateEventCommand extends Command
      */
     public function getStubPath(): string
     {
-        return __DIR__.'/../../resources/stubs/event.stub';
+        return __DIR__.'/../../resources/stubs/listener.stub';
     }
 
     /**
@@ -55,7 +55,7 @@ class CreateEventCommand extends Command
     public function getStubVariables(): array
     {
         return [
-            'NAMESPACE' => 'App\\Events',
+            'NAMESPACE' => 'App\\Listeners',
             'CLASS_NAME' => $this->getClassName(),
         ];
     }
@@ -63,7 +63,7 @@ class CreateEventCommand extends Command
     /**
      * Get the stub path and the stub variables.
      */
-    public function getSourceFile(): mixed
+    public function getSourceFile(): string|array|false
     {
         return $this->getStubContents($this->getStubPath(), $this->getStubVariables());
     }
@@ -87,7 +87,7 @@ class CreateEventCommand extends Command
      */
     public function getSourceFilePath(): string
     {
-        return app_path('Events/'.$this->getClassName()).'.php';
+        return app_path('Listeners/'.$this->getClassName()).'.php';
     }
 
     /**
