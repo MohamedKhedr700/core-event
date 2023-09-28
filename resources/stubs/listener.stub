@@ -9,14 +9,14 @@ class $CLASS_NAME$ implements EventListenerInterface
     /**
      * Initialize the event.
      */
-    public function init(array $data): void
+    public function init(): void
     {
     }
 
     /**
      * Handle the event.
      */
-    public function handle(User $user): void
+    public function handle(): void
     {
     }
 }
