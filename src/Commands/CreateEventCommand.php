@@ -61,7 +61,7 @@ class CreateEventCommand extends Command
      */
     public function getStubPath(): string
     {
-        return __DIR__.'/../../../stubs/event.stub';
+        return __DIR__.'/../../resources/stubs/event.stub';
     }
 
     /**

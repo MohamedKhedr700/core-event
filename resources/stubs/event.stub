@@ -1,0 +1,21 @@
+<?php
+
+namespace $NAMESPACE$;
+
+use Raid\Core\Event\Events\Contracts\EventInterface;
+use Raid\Core\Event\Events\Event;
+
+interface $CLASS_NAME$Interface extends Event implements EventInterface
+{
+    /**
+     * {@inheritdoc}
+     */
+    public const ACTION = '';
+
+    /**
+     * {@inheritdoc}
+     */
+    public const LISTENERS = [
+        // Listener::class,
+    ];
+}
