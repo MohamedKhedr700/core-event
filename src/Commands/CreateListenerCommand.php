@@ -2,8 +2,6 @@
 
 namespace Raid\Core\Event\Commands;
 
-use Illuminate\Console\Command;
-use Illuminate\Support\Facades\File;
 use Raid\Core\Command\Commands\CreateCommand;
 
 class CreateListenerCommand extends CreateCommand
