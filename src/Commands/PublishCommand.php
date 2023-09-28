@@ -20,6 +20,6 @@ class PublishCommand extends CorePublishCommand
      */
     public function handle(): void
     {
-        $this->publish('config-event');
+        $this->publishCommand('config-event');
     }
 }

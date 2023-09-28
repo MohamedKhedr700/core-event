@@ -23,7 +23,7 @@ class CreateEventCommand extends Command
      */
     public function handle(): void
     {
-        $this->create();
+        $this->createCommand();
     }
 
     /**
