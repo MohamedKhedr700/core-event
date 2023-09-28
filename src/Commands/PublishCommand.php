@@ -9,7 +9,7 @@ class PublishCommand extends CorePublishCommand
     /**
      * {@inheritdoc}
      */
-    protected $name = 'core:publish-event';
+    protected string $name = 'core:publish-event';
 
     /**
      * {@inheritdoc}
