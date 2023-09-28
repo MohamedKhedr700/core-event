@@ -8,7 +8,7 @@ class PublishCommand extends CorePublishCommand
     /**
      * {@inheritdoc}
      */
-    protected $name = 'core:publish-event';
+    protected $signature = 'core:publish-event';
 
     /**
      * {@inheritdoc}
