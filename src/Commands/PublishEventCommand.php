@@ -4,7 +4,7 @@ namespace Raid\Core\Event\Commands;
 
 use Raid\Core\Command\Commands\PublishCommand as CorePublishCommand;
 
-class PublishCommand extends CorePublishCommand
+class PublishEventCommand extends CorePublishCommand
 {
     /**
      * {@inheritdoc}

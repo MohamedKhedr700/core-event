@@ -7,14 +7,14 @@ use Raid\Core\Event\Events\Contracts\EventListenerInterface;
 class $CLASS_NAME$ implements EventListenerInterface
 {
     /**
-     * Initialize the event.
+     * Initialize the listener.
      */
     public function init(): void
     {
     }
 
     /**
-     * Handle the event.
+     * Handle the Initialize the listener..
      */
     public function handle(): void
     {
