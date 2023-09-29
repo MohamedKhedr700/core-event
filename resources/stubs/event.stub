@@ -15,7 +15,5 @@ class $CLASS_NAME$ extends Event implements EventInterface
     /**
      * {@inheritdoc}
      */
-    public const LISTENERS = [
-        //
-    ];
+    public const LISTENERS = [];
 }
