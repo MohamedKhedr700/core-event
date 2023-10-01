@@ -37,9 +37,14 @@ events()->trigger('user.create', $user);
 Let's start with our eventable class `User`.
 
 ``` php
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
 use Raid\Core\Event\Traits\Event\Eventable;
 
-class User
+class User extends Model
 {
     use Eventable;
 }
@@ -50,7 +55,15 @@ To define the `User` class events, we have two ways:
 1. Using `getEvents` method.
 
 ``` php
-class User
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+use Raid\Core\Event\Traits\Event\Eventable;
+use App\Events\CreateUserEvent;
+
+class User extends Model
 {
     use Eventable;
     
@@ -67,7 +80,7 @@ class User
 }
 ```
 
-2. Using `config/event.php` file in `events` key.
+2. Using `config/event.php` file.
 
 ``` php
 'events' => [
@@ -203,9 +216,10 @@ User::events()->trigger('create', $user);
 
 The `events` method is a static method that will be called from the `Eventable` trait.
 
-The `trigger` method is a method that will be called from the `Events` and `Listener` related to the fired action.
+The `trigger` method is a method that will be called from the `Events` and `Listeners` related to the triggered action.
 
-This will call the `handle` method in each listener related to the fired event action.
+This will call the `handle` method in each listener
+related to the triggered event action without calling the `init` method.
 
 And that's it.
 
