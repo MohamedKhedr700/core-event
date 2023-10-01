@@ -20,10 +20,10 @@ php artisan core:publish-event
 ``` php
 $user = User::create($data);
 
-User::event('create', $user);
+User::events('create', $user);
 
 // or using the trigger method
-User::event()->trigger('create', $user);
+User::events()->trigger('create', $user);
 
 // using the facade
 Events::trigger('user.create', $user);
