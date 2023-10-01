@@ -107,10 +107,11 @@ class CreateUserEvent extends Event implements EventInterface
 
 The event class must implement `EventInterface` interface.
 
+The event class must extend `Event` class.
+
 The event class must define `ACTION` constant, which is the event action name.
 
-The event class must define `LISTENERS` constant, which is the event listeners,
-which will be called when the event is triggered.
+The `LISTENERS` constant is an array of listener classes that will be called when the event is triggered.
 
 Now, let's create our event listener `CreateUserListener`.
 
@@ -133,7 +134,7 @@ class CreateUserListener implements EventListenerInterface
     }
 
     /**
-     * Handle the Initialize the listener.
+     * Handle the listener.
      */
     public function handle(): void
     {
@@ -143,15 +144,11 @@ class CreateUserListener implements EventListenerInterface
 
 The event listener class must implement `EventListenerInterface` interface.
 
-The `handle` method is the method that will be called when the event is triggered.
-
 The `init` method is the method that will be called when the event listener is initialized.
 
-And that's it.
+The `handle` method is the method that will be called when the event is triggered.
 
-Now, let's trigger the event.
-
-Add the proper action and listeners to the event class.
+Let's finish our event class and listener class.
 
 ``` php
 <?php
@@ -177,6 +174,25 @@ class CreateUserEvent extends Event implements EventInterface
 }
 ```
 
+``` php
+<?php
+
+namespace App\Listeners;
+
+use App\Models\User;
+use Raid\Core\Event\Events\Contracts\EventListenerInterface;
+
+class CreateUserListener implements EventListenerInterface
+{
+    /**
+     * Handle the listener.
+     */
+    public function handle(User $user): void
+    {
+    }
+}
+```
+
 Now, let's trigger the event.
 
 ``` php
@@ -188,6 +204,10 @@ User::events()->trigger('create', $user);
 The `events` method is a static method that will be called from the `Eventable` trait.
 
 The `trigger` method is a method that will be called from the `Events` and `Listener` related to the fired action.
+
+This will call the `handle` method in each listener related to the fired event action.
+
+And that's it.
 
 ## License
 
