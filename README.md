@@ -143,7 +143,11 @@ The `LISTENERS` constant is an array of listener classes that will be called whe
 
 Now, let's create our event listener `CreateUserListener`.
 
-you can use the command `php artisan core:make-listener CreateUserListener` to create the event listener class.
+you can use this command to create the event listener class.
+
+``` bash
+php artisan core:make-listener CreateUserListener
+```
 
 ``` php
 <?php
@@ -270,7 +274,6 @@ instead of using the issue tracker.
 ## About Raid
 
 Raid is a PHP framework created by **[Mohamed Khedr](https://github.com/MohamedKhedr700)**
-
 and it is maintained by **[Mohamed Khedr](https://github.com/MohamedKhedr700)**.
 
 ## Support Raid
