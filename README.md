@@ -18,18 +18,28 @@ php artisan core:publish-event
 ## Usage
 
 ``` php
-$user = User::create($data);
+class UserController extends Controller
+{
+    /**
+     * Invoke the controller method.
+     */
+    public function __invoke(Request $request)
+    {
+        $user = User::create($request->only(['name', 'email', 'password']));
+        
+        // let's trigger the create event.
+        User::events('create', $user);
+        
+        // or using the trigger method
+        User::events()->trigger('create', $user);
 
-User::events('create', $user);
-
-// or using the trigger method
-User::events()->trigger('create', $user);
-
-// using the facade
-Events::trigger('user.create', $user);
-
-// using the helper
-events()->trigger('user.create', $user);
+        // using the facade
+        Events::trigger('user.create', $user);
+        
+        // using the helper
+        events()->trigger('user.create', $user);
+    }
+}
 ```
 
 # How to work this
@@ -50,9 +60,9 @@ class User extends Model
 }
 ```
 
-To define the `User` class events, we have two ways:
+To define the eventable class ex:`User` model events, we have two ways:
 
-1. Using `getEvents` method.
+1. Define `getEvents` method.
 
 ``` php
 <?php
@@ -67,7 +77,7 @@ class User extends Model
 {
     use Eventable;
     
-    **
+    /**
      * Get eventable events.
      */
     public static function getEvents(): array
@@ -80,7 +90,7 @@ class User extends Model
 }
 ```
 
-2. Using `config/event.php` file.
+2. Define `config/event.php` events.
 
 ``` php
 'events' => [
@@ -94,7 +104,12 @@ class User extends Model
 
 Now, let's create our event class `CreateUserEvent`.
 
-you can use the command `php artisan core:make-event CreateUserEvent` to create the event class.
+you can use this command to create the event class.
+
+``` bash
+php artisan core:make-event CreateUserEvent
+```
+Here is the event class.
 
 ``` php
 <?php
@@ -202,16 +217,32 @@ class CreateUserListener implements EventListenerInterface
      */
     public function handle(User $user): void
     {
+        // here we can do many things with the event given arguments.
     }
 }
 ```
 
-Now, let's trigger the event.
+Now, let's trigger the event with its listeners.
 
 ``` php
-$user = User::create($data);
+<?php
 
-User::events()->trigger('create', $user);
+namespace App\Http\Controllers;
+
+use App\Models\User;
+
+class UserController extends Controller
+{
+    /**
+     * Invoke the controller method.
+     */
+    public function __invoke(Request $request)
+    {
+        $user = User::create($request->only(['name', 'email', 'password']));
+    
+        User::events()->trigger('create', $user);
+    }
+}
 ```
 
 The `events` method is a static method that will be called from the `Eventable` trait.
@@ -229,7 +260,7 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 
 ## Credits
 
-- [Mohamed Khedr]()
+- **[Mohamed Khedr](https://github.com/MohamedKhedr700)**
 
 ## Security
 
@@ -238,8 +269,9 @@ instead of using the issue tracker.
 
 ## About Raid
 
-Raid is a PHP framework created by [MohamedKhedr700]()
-and is maintained by [MohamedKhedr700]().
+Raid is a PHP framework created by **[Mohamed Khedr](https://github.com/MohamedKhedr700)**
+
+and is maintained by **[Mohamed Khedr](https://github.com/MohamedKhedr700)**.
 
 ## Support Raid
 
