@@ -4,23 +4,23 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Events Handler
+    | Events Manager
     |--------------------------------------------------------------------------
-    | Here you can define the events handler that will be used in the application.
+    | Here you can define the events manager that will be used in the application.
     |
     */
 
-    'events_handler' => Raid\Core\Event\Events\EventManager::class,
+    'events_manager' => Raid\Core\Event\Events\EventManager::class,
 
     /*
     |--------------------------------------------------------------------------
-    | Eventable Handler
+    | Eventable Manager
     |--------------------------------------------------------------------------
-    | Here you can define the eventable handler that will be used in the application.
+    | Here you can define the eventable manager that will be used in the application.
     |
     */
 
-    'eventable_handler' => Raid\Core\Event\Events\Eventable::class,
+    'eventable_manager' => Raid\Core\Event\Events\Eventable::class,
 
     /*
     |--------------------------------------------------------------------------

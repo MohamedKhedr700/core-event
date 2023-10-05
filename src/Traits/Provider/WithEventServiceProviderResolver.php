@@ -48,26 +48,26 @@ trait WithEventServiceProviderResolver
      */
     private function registerEvents(): void
     {
-        $this->registerEventsFacadeHandler();
-        $this->registerEventableHandler();
+        $this->registerEventsFacadeManager();
+        $this->registerEventableManager();
     }
 
     /**
-     * Register events facade handler.
+     * Register events facade manager.
      */
-    private function registerEventsFacadeHandler(): void
+    private function registerEventsFacadeManager(): void
     {
-        $eventManager = config('event.events_handler');
+        $eventManager = config('event.events_manager');
 
         $this->app->singleton(Events::facade(), $eventManager);
         $this->app->singleton(EventManagerInterface::class, $eventManager);
     }
 
     /**
-     * Register eventable handler.
+     * Register eventable manager.
      */
-    private function registerEventableHandler(): void
+    private function registerEventableManager(): void
     {
-        $this->app->bind(EventableInterface::class, config('event.eventable_handler'));
+        $this->app->bind(EventableInterface::class, config('event.eventable_manager'));
     }
 }

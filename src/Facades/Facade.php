@@ -2,9 +2,9 @@
 
 namespace Raid\Core\Event\Facades;
 
-use Illuminate\Support\Facades\Facade as BaseFacade;
+use Illuminate\Support\Facades\Facade as IlluminateFacade;
 
-class Facade extends BaseFacade
+class Facade extends IlluminateFacade
 {
     /**
      * Facade bind key.
