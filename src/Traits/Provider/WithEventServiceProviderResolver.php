@@ -4,7 +4,7 @@ namespace Raid\Core\Event\Traits\Provider;
 
 use Raid\Core\Event\Events\Contracts\EventableInterface;
 use Raid\Core\Event\Events\Contracts\EventManagerInterface;
-use Raid\Core\Event\Facades\Events\Events;
+use Raid\Core\Event\Facades\Events;
 
 trait WithEventServiceProviderResolver
 {
@@ -48,14 +48,14 @@ trait WithEventServiceProviderResolver
      */
     private function registerEvents(): void
     {
-        $this->registerEventsFacadeManager();
+        $this->registerEventsFacade();
         $this->registerEventableManager();
     }
 
     /**
-     * Register events facade manager.
+     * Register events facade.
      */
-    private function registerEventsFacadeManager(): void
+    private function registerEventsFacade(): void
     {
         $eventManager = config('event.events_manager');
 
