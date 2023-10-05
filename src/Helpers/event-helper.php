@@ -2,7 +2,7 @@
 
 use Raid\Core\Event\Events\Contracts\EventableInterface;
 use Raid\Core\Event\Events\Contracts\EventManagerInterface;
-use Raid\Core\Event\Facades\Events\Events;
+use Raid\Core\Event\Facades\Events;
 
 if (! function_exists('events')) {
     /**
