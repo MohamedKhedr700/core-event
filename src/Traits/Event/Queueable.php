@@ -7,12 +7,12 @@ trait Queueable
     /**
      * Indicates if the event should be queued.
      */
-    protected bool $queue;
+    protected bool $queue = true;
 
     /**
      * The name of the queue the event should be sent to.
      */
-    protected string $onQueue;
+    protected string $onQueue = 'default';
 
     /**
      * Set the event queue.
@@ -29,7 +29,7 @@ trait Queueable
      */
     public function queue(): bool
     {
-        return $this->queue ?? false;
+        return $this->queue;
     }
 
     /**
@@ -47,6 +47,6 @@ trait Queueable
      */
     public function onQueue(): string
     {
-        return $this->onQueue ?? 'default';
+        return $this->onQueue;
     }
 }
