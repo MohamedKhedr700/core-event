@@ -23,7 +23,6 @@ class Eventable implements EventableInterface
     public function __construct(string $eventable)
     {
         $this->setEventable($eventable);
-
     }
 
     /**

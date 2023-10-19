@@ -10,6 +10,11 @@ trait Queueable
     protected bool $queue = true;
 
     /**
+     * The name of the queue the event should be sent to.
+     */
+    protected string $onQueue = 'default';
+
+    /**
      * Set the event queue.
      */
     public function setQueue(bool $queue): static
@@ -25,5 +30,23 @@ trait Queueable
     public function queue(): bool
     {
         return $this->queue;
+    }
+
+    /**
+     * Set the name of the queue the event should be sent to.
+     */
+    public function setOnQueue(string $queue): static
+    {
+        $this->onQueue = $queue;
+
+        return $this;
+    }
+
+    /**
+     * Get the name of the queue the event should be sent to.
+     */
+    public function onQueue(): string
+    {
+        return $this->onQueue;
     }
 }

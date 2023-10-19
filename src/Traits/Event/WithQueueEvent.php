@@ -33,7 +33,7 @@ trait WithQueueEvent
      */
     public function dispatchEventManager(string $method, array $data): void
     {
-        EventManagerQueue::dispatch($this, $method, $data);
+        EventManagerQueue::dispatch($this, $method, $data)->onQueue($this->onQueue());
     }
 
     /**
@@ -41,6 +41,6 @@ trait WithQueueEvent
      */
     public function dispatchEventListener(EventListenerInterface $listener, string $method, array $data): void
     {
-        EventListenerQueue::dispatch($listener, $method, $data);
+        EventListenerQueue::dispatch($listener, $method, $data)->onQueue($this->onQueue());
     }
 }
