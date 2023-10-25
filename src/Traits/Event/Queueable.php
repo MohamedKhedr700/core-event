@@ -39,8 +39,6 @@ trait Queueable
     {
         $this->onQueue = $queue;
 
-
-
         return $this;
     }
 
